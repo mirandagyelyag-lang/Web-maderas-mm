@@ -55,7 +55,7 @@ export default function QuoteEngine() {
                   <span className="text-[#B88655]">MATERIAL</span>
                 </h2>
 
-                <p className="w-full max-w-xl text-[#F9F7F2]/78 text-[15px] sm:text-lg leading-[1.7] mb-7">
+                <p className="w-full max-w-xl text-[#F9F7F2]/80 text-[15px] sm:text-lg leading-[1.7] mb-7">
                   Trabajamos la madera respetando su carácter natural, combinando oficio,
                   precisión y cortes a medida para cada proyecto.
                 </p>
@@ -87,7 +87,7 @@ export default function QuoteEngine() {
                   }`}>
                     {stat.num}
                   </span>
-                  <span className="font-mono-tech text-[7px] min-[390px]:text-[8px] sm:text-[10px] uppercase tracking-[0.04em] sm:tracking-[0.1em] text-[#F9F7F2]/58 block mt-2 leading-[1.35]">
+                  <span className="font-mono-tech text-[7px] min-[390px]:text-[8px] sm:text-[10px] uppercase tracking-[0.04em] sm:tracking-[0.1em] text-[#F9F7F2]/60 block mt-2 leading-[1.35]">
                     {stat.label}
                   </span>
                 </div>
@@ -124,7 +124,7 @@ export default function QuoteEngine() {
                   </div>
                 </div>
                 <div className="px-5 py-4 border-t border-[#A67C52]/15">
-                  <p className="text-[14px] text-[#F9F7F2]/62 leading-relaxed">
+                  <p className="text-[14px] text-[#F9F7F2]/60 leading-relaxed">
                     Versátil y funcional para construcción, carpintería y soluciones a medida.
                   </p>
                 </div>
@@ -148,7 +148,7 @@ export default function QuoteEngine() {
                   </div>
                 </div>
                 <div className="px-5 py-4 border-t border-[#A67C52]/15">
-                  <p className="text-[14px] text-[#F9F7F2]/62 leading-relaxed">
+                  <p className="text-[14px] text-[#F9F7F2]/60 leading-relaxed">
                     Firme, resistente y con una terminación cálida para proyectos de mayor presencia.
                   </p>
                 </div>
