@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MessageCircle, Check } from "lucide-react";
 
-const ABOUT_IMG = "/assets/about.svg";
+const ABOUT_IMG = "/assets/about-realista.png";
 
 const materiales = ["Pino Bruto", "Pino Cepillado", "Rejas Trillage"];
 const acabados = ["Aserrado (Bruto)", "Cepillado C4C", "Cortes a medida"];
@@ -63,7 +63,9 @@ export default function QuoteEngine() {
             </div>
             <div className="col-span-12 lg:col-span-6">
               <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={ABOUT_IMG} alt="Carpintero sintiendo el grano" className="w-full h-full object-cover" />
+                <img src={ABOUT_IMG} 
+                  alt="Muestras de madera de pino"
+                  className="w-full h-full object-cover brightness-[0.82] contrast-[1.05]" />
                 <div className="absolute inset-0 ring-1 ring-inset ring-[#A67C52]/30" />
               </div>
             </div>
