@@ -3,6 +3,7 @@ import { MessageCircle, Check } from "lucide-react";
 
 const ABOUT_RADIATA_IMG = "/assets/about-radiata.png";
 const ABOUT_OREGON_IMG = "/assets/about-oregon.png";
+const ABOUT_REALISTA_IMG = "/assets/about-realista.png";
 
 const materiales = ["Pino Bruto", "Pino Cepillado", "Rejas Trillage"];
 const acabados = ["Aserrado (Bruto)", "Cepillado C4C", "Cortes a medida"];
@@ -28,97 +29,121 @@ export default function QuoteEngine() {
   return (
     <>
       {/* About strip */}
-      <section className="w-full max-w-full bg-[#1F1B18] py-20 md:py-32 relative overflow-x-clip overflow-y-hidden">
-        <div className="absolute inset-0 grain-overlay opacity-20" />
-        <div className="w-full max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full min-w-0">
-            <div className="w-full min-w-0 lg:col-span-6">
-              <div className="flex items-center gap-4 mb-4 min-w-0">
-                <span className="font-mono-tech text-xs text-[#A67C52] uppercase tracking-[0.22em] sm:tracking-[0.3em] whitespace-nowrap">
-                  01 / Nuestra Esencia
-                </span>
-                <span className="h-px w-16 bg-[#A67C52]/60" />
+      <section className="w-full bg-[#1F1B18] relative overflow-hidden">
+        <div className="absolute inset-0 grain-overlay opacity-10 pointer-events-none" />
+
+        <div className="w-full max-w-7xl mx-auto px-5 sm:px-6 py-20 md:py-28 relative z-10">
+          <div className="relative overflow-hidden border border-[#A67C52]/20 min-h-[660px] sm:min-h-[620px] md:min-h-[680px]">
+            <img
+              src={ABOUT_REALISTA_IMG}
+              alt="Madera de pino trabajada por Maderas M&M"
+              className="absolute inset-0 w-full h-full object-cover brightness-[0.46] saturate-[0.82]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#15110f]/32 via-[#15110f]/58 to-[#15110f]/96" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#15110f]/76 via-[#15110f]/30 to-transparent" />
+
+            <div className="relative z-10 min-h-[660px] sm:min-h-[620px] md:min-h-[680px] flex flex-col justify-between p-6 sm:p-8 md:p-12">
+              <div className="max-w-2xl">
+                <div className="flex items-center gap-4 mb-5">
+                  <span className="font-mono-tech text-[11px] sm:text-xs text-[#C99561] uppercase tracking-[0.18em] sm:tracking-[0.28em] whitespace-nowrap">
+                    01 / Nuestra Esencia
+                  </span>
+                  <span className="h-px w-12 sm:w-16 bg-[#A67C52]/70" />
+                </div>
+
+                <h2 className="font-heading font-bold text-[#F9F7F2] text-[44px] sm:text-5xl md:text-6xl leading-[0.96] tracking-tight mb-6">
+                  HONESTIDAD<br />
+                  <span className="text-[#B88655]">MATERIAL</span>
+                </h2>
+
+                <p className="max-w-xl text-[#F9F7F2]/78 text-[16px] sm:text-lg leading-relaxed mb-7">
+                  Trabajamos la madera respetando su carácter natural, combinando oficio,
+                  precisión y cortes a medida para cada proyecto.
+                </p>
+
+                <a
+                  href="#especies"
+                  className="inline-flex items-center gap-3 bg-[#B88655] text-[#F9F7F2] px-5 sm:px-6 py-3.5 font-heading font-semibold text-sm tracking-wide hover:bg-[#9C7048] transition-colors"
+                >
+                  CONOCE NUESTRAS MADERAS
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
 
-              <h2 className="font-heading font-bold text-[#F9F7F2] text-4xl md:text-5xl leading-tight text-balance mb-6">
-                HONESTIDAD<br />
-                <span className="text-[#A67C52]">MATERIAL</span>
-              </h2>
-
-              <p className="block w-full max-w-xl text-[#F9F7F2]/70 text-[17px] sm:text-lg leading-relaxed mb-8 whitespace-normal break-normal">
-                En Maderas M&M celebramos el alma rústica del bosque chileno con la precisión
-                de la construcción moderna. Cada pieza de pino que sale de nuestro aserradero
-                lleva el sello de la calidad, el grano y el legado de la madera nacional.
-              </p>
-
-              <div className="grid grid-cols-1 xs:grid-cols-3 sm:grid-cols-3 gap-5 sm:gap-4">
+              <div className="grid grid-cols-3 gap-0 border-t border-[#F9F7F2]/15 pt-6 mt-10">
                 {[
-                  { num: "100%", label: "Pino Chileno" },
+                  { num: "100%", label: "Pino chileno" },
                   { num: "C4C", label: "Cepillado 4 caras" },
                   { num: "A medida", label: "Cortes especiales" },
-                ].map((stat) => (
-                  <div key={stat.label} className="min-w-0 border-l-2 border-[#A67C52] pl-3">
-                    <span className="font-heading font-bold text-[#A67C52] text-2xl block">
+                ].map((stat, index) => (
+                  <div
+                    key={stat.label}
+                    className={`min-w-0 px-3 sm:px-5 ${index > 0 ? "border-l border-[#A67C52]/35" : ""}`}
+                  >
+                    <span className="font-heading font-bold text-[#C99561] text-xl sm:text-2xl block leading-none">
                       {stat.num}
                     </span>
-                    <span className="font-mono-tech text-[9px] sm:text-[10px] uppercase tracking-[0.12em] sm:tracking-widest text-[#F9F7F2]/60 break-words">
+                    <span className="font-mono-tech text-[8px] sm:text-[10px] uppercase tracking-[0.08em] sm:tracking-[0.12em] text-[#F9F7F2]/58 block mt-2 leading-snug">
                       {stat.label}
                     </span>
                   </div>
                 ))}
               </div>
             </div>
+          </div>
 
-            <div className="col-span-12 lg:col-span-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full min-w-0">
-                <article className="group min-w-0 w-full bg-[#181412] border border-[#A67C52]/30 overflow-hidden">
-                  <div className="relative aspect-[3/4] overflow-hidden">
-                    <img
-                      src={ABOUT_RADIATA_IMG}
-                      alt="Pino Radiata"
-                      className="w-full h-full object-cover brightness-[0.78] contrast-[1.04] transition-transform duration-700 group-hover:scale-[1.03]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#181412]/85 via-transparent to-transparent" />
-                    <div className="absolute left-4 sm:left-5 bottom-4 sm:bottom-5 max-w-[calc(100%-2rem)]">
-                      <span className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#D1A169]">
-                        Pino
-                      </span>
-                      <h3 className="font-heading text-[#F9F7F2] text-2xl md:text-3xl font-bold leading-none mt-1 break-words">
-                        RADIATA
-                      </h3>
-                    </div>
-                  </div>
-                  <div className="px-4 sm:px-5 py-4 border-t border-[#A67C52]/20 min-w-0">
-                    <p className="font-mono-tech text-[9px] sm:text-[10px] uppercase tracking-[0.08em] sm:tracking-[0.12em] text-[#F9F7F2]/58 leading-relaxed break-words">
-                      Versátil y funcional para construcción y carpintería.
-                    </p>
-                  </div>
-                </article>
-
-                <article className="group min-w-0 w-full bg-[#181412] border border-[#A67C52]/30 overflow-hidden">
-                  <div className="relative aspect-[3/4] overflow-hidden">
-                    <img
-                      src={ABOUT_OREGON_IMG}
-                      alt="Pino Oregón"
-                      className="w-full h-full object-cover brightness-[0.78] contrast-[1.04] transition-transform duration-700 group-hover:scale-[1.03]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#181412]/85 via-transparent to-transparent" />
-                    <div className="absolute left-4 sm:left-5 bottom-4 sm:bottom-5 max-w-[calc(100%-2rem)]">
-                      <span className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#D1A169]">
-                        Pino
-                      </span>
-                      <h3 className="font-heading text-[#F9F7F2] text-2xl md:text-3xl font-bold leading-none mt-1 break-words">
-                        OREGÓN
-                      </h3>
-                    </div>
-                  </div>
-                  <div className="px-4 sm:px-5 py-4 border-t border-[#A67C52]/20 min-w-0">
-                    <p className="font-mono-tech text-[9px] sm:text-[10px] uppercase tracking-[0.08em] sm:tracking-[0.12em] text-[#F9F7F2]/58 leading-relaxed break-words">
-                      Firme, resistente y de excelente terminación.
-                    </p>
-                  </div>
-                </article>
+          <div id="especies" className="pt-14 md:pt-18">
+            <div className="flex items-end justify-between gap-6 mb-6">
+              <div>
+                <span className="font-mono-tech text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#A67C52]">
+                  Especies trabajadas
+                </span>
+                <h3 className="font-heading text-[#F9F7F2] text-2xl sm:text-3xl font-bold mt-2">
+                  Dos pinos, dos caracteres
+                </h3>
               </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <article className="group bg-[#181412] border border-[#A67C52]/25 overflow-hidden">
+                <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden">
+                  <img
+                    src={ABOUT_RADIATA_IMG}
+                    alt="Pino Radiata"
+                    className="w-full h-full object-cover brightness-[0.74] contrast-[1.03] transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#181412]/92 via-transparent to-transparent" />
+                  <div className="absolute left-5 right-5 bottom-5">
+                    <span className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#D1A169]">Pino</span>
+                    <h4 className="font-heading text-[#F9F7F2] text-3xl font-bold leading-none mt-1">RADIATA</h4>
+                  </div>
+                </div>
+                <div className="px-5 py-4 border-t border-[#A67C52]/15">
+                  <p className="text-sm text-[#F9F7F2]/62 leading-relaxed">
+                    Versátil y funcional para construcción, carpintería y soluciones a medida.
+                  </p>
+                </div>
+              </article>
+
+              <article className="group bg-[#181412] border border-[#A67C52]/25 overflow-hidden">
+                <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden">
+                  <img
+                    src={ABOUT_OREGON_IMG}
+                    alt="Pino Oregón"
+                    className="w-full h-full object-cover brightness-[0.74] contrast-[1.03] transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#181412]/92 via-transparent to-transparent" />
+                  <div className="absolute left-5 right-5 bottom-5">
+                    <span className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#D1A169]">Pino</span>
+                    <h4 className="font-heading text-[#F9F7F2] text-3xl font-bold leading-none mt-1">OREGÓN</h4>
+                  </div>
+                </div>
+                <div className="px-5 py-4 border-t border-[#A67C52]/15">
+                  <p className="text-sm text-[#F9F7F2]/62 leading-relaxed">
+                    Firme, resistente y con una terminación cálida para proyectos de mayor presencia.
+                  </p>
+                </div>
+              </article>
             </div>
           </div>
         </div>
