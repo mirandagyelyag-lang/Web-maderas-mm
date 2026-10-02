@@ -28,11 +28,11 @@ export default function QuoteEngine() {
   return (
     <>
       {/* About strip */}
-      <section className="bg-[#1F1B18] py-24 md:py-32 relative overflow-hidden">
+      <section className="w-full max-w-full bg-[#1F1B18] py-20 md:py-32 relative overflow-x-clip overflow-y-hidden">
         <div className="absolute inset-0 grain-overlay opacity-20" />
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-12 gap-10 lg:gap-14 items-center">
-            <div className="col-span-12 lg:col-span-6">
+        <div className="w-full max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
+          <div className="grid grid-cols-12 gap-10 lg:gap-14 items-center min-w-0">
+            <div className="col-span-12 lg:col-span-6 min-w-0">
               <div className="flex items-center gap-4 mb-4">
                 <span className="font-mono-tech text-xs text-[#A67C52] uppercase tracking-[0.3em]">
                   01 / Nuestra Esencia
@@ -51,17 +51,17 @@ export default function QuoteEngine() {
                 lleva el sello de la calidad, el grano y el legado de la madera nacional.
               </p>
 
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 xs:grid-cols-3 sm:grid-cols-3 gap-5 sm:gap-4">
                 {[
                   { num: "100%", label: "Pino Chileno" },
                   { num: "C4C", label: "Cepillado 4 caras" },
                   { num: "A medida", label: "Cortes especiales" },
                 ].map((stat) => (
-                  <div key={stat.label} className="border-l-2 border-[#A67C52] pl-3">
+                  <div key={stat.label} className="min-w-0 border-l-2 border-[#A67C52] pl-3">
                     <span className="font-heading font-bold text-[#A67C52] text-2xl block">
                       {stat.num}
                     </span>
-                    <span className="font-mono-tech text-[10px] uppercase tracking-widest text-[#F9F7F2]/60">
+                    <span className="font-mono-tech text-[9px] sm:text-[10px] uppercase tracking-[0.12em] sm:tracking-widest text-[#F9F7F2]/60 break-words">
                       {stat.label}
                     </span>
                   </div>
@@ -70,8 +70,8 @@ export default function QuoteEngine() {
             </div>
 
             <div className="col-span-12 lg:col-span-6">
-              <div className="grid grid-cols-2 gap-4">
-                <article className="group bg-[#181412] border border-[#A67C52]/30 overflow-hidden">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full min-w-0">
+                <article className="group min-w-0 w-full bg-[#181412] border border-[#A67C52]/30 overflow-hidden">
                   <div className="relative aspect-[3/4] overflow-hidden">
                     <img
                       src={ABOUT_RADIATA_IMG}
@@ -79,23 +79,23 @@ export default function QuoteEngine() {
                       className="w-full h-full object-cover brightness-[0.78] contrast-[1.04] transition-transform duration-700 group-hover:scale-[1.03]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#181412]/85 via-transparent to-transparent" />
-                    <div className="absolute left-5 bottom-5">
+                    <div className="absolute left-4 sm:left-5 bottom-4 sm:bottom-5 max-w-[calc(100%-2rem)]">
                       <span className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#D1A169]">
                         Pino
                       </span>
-                      <h3 className="font-heading text-[#F9F7F2] text-2xl md:text-3xl font-bold leading-none mt-1">
+                      <h3 className="font-heading text-[#F9F7F2] text-2xl md:text-3xl font-bold leading-none mt-1 break-words">
                         RADIATA
                       </h3>
                     </div>
                   </div>
-                  <div className="px-5 py-4 border-t border-[#A67C52]/20">
-                    <p className="font-mono-tech text-[10px] uppercase tracking-[0.12em] text-[#F9F7F2]/58 leading-relaxed">
+                  <div className="px-4 sm:px-5 py-4 border-t border-[#A67C52]/20 min-w-0">
+                    <p className="font-mono-tech text-[9px] sm:text-[10px] uppercase tracking-[0.08em] sm:tracking-[0.12em] text-[#F9F7F2]/58 leading-relaxed break-words">
                       Versátil y funcional para construcción y carpintería.
                     </p>
                   </div>
                 </article>
 
-                <article className="group bg-[#181412] border border-[#A67C52]/30 overflow-hidden">
+                <article className="group min-w-0 w-full bg-[#181412] border border-[#A67C52]/30 overflow-hidden">
                   <div className="relative aspect-[3/4] overflow-hidden">
                     <img
                       src={ABOUT_OREGON_IMG}
@@ -103,17 +103,17 @@ export default function QuoteEngine() {
                       className="w-full h-full object-cover brightness-[0.78] contrast-[1.04] transition-transform duration-700 group-hover:scale-[1.03]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#181412]/85 via-transparent to-transparent" />
-                    <div className="absolute left-5 bottom-5">
+                    <div className="absolute left-4 sm:left-5 bottom-4 sm:bottom-5 max-w-[calc(100%-2rem)]">
                       <span className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#D1A169]">
                         Pino
                       </span>
-                      <h3 className="font-heading text-[#F9F7F2] text-2xl md:text-3xl font-bold leading-none mt-1">
+                      <h3 className="font-heading text-[#F9F7F2] text-2xl md:text-3xl font-bold leading-none mt-1 break-words">
                         OREGÓN
                       </h3>
                     </div>
                   </div>
-                  <div className="px-5 py-4 border-t border-[#A67C52]/20">
-                    <p className="font-mono-tech text-[10px] uppercase tracking-[0.12em] text-[#F9F7F2]/58 leading-relaxed">
+                  <div className="px-4 sm:px-5 py-4 border-t border-[#A67C52]/20 min-w-0">
+                    <p className="font-mono-tech text-[9px] sm:text-[10px] uppercase tracking-[0.08em] sm:tracking-[0.12em] text-[#F9F7F2]/58 leading-relaxed break-words">
                       Firme, resistente y de excelente terminación.
                     </p>
                   </div>
@@ -125,8 +125,8 @@ export default function QuoteEngine() {
       </section>
 
       {/* Quote Engine */}
-      <section id="cotizar" className="bg-[#F9F7F2] py-24 md:py-32">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="cotizar" className="w-full max-w-full bg-[#F9F7F2] py-20 md:py-32 overflow-x-clip">
+        <div className="w-full max-w-7xl mx-auto px-5 sm:px-6">
           <div className="grid grid-cols-12 gap-8">
             <div className="col-span-12 lg:col-span-5">
               <div className="flex items-center gap-4 mb-4">
@@ -186,7 +186,7 @@ export default function QuoteEngine() {
                   <label className="font-mono-tech text-xs uppercase tracking-widest text-[#A67C52] block mb-3">
                     02 — Acabado
                   </label>
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                     {acabados.map((a) => (
                       <button
                         key={a}
