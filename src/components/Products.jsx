@@ -66,9 +66,10 @@ export default function Products() {
           </div>
           <div className="col-span-12 lg:col-span-4 flex items-end">
             <p className="text-[#3E424B] text-lg leading-relaxed">
-              Trabajamos madera de pino radiata chilena en dos presentaciones:
-              <strong className="text-[#1F1B18]"> bruto</strong> para estructura y
-              <strong className="text-[#1F1B18]"> cepillado</strong> para acabado fino.
+              La diferencia está en la terminación: el
+              <strong className="text-[#1F1B18]"> bruto</strong> conserva la textura del aserrado,
+              mientras el <strong className="text-[#1F1B18]">cepillado</strong> queda liso,
+              uniforme y listo para quedar a la vista.
             </p>
           </div>
         </div>
@@ -120,6 +121,93 @@ export default function Products() {
             <span className="absolute top-4 right-4 font-mono-tech text-xs uppercase tracking-widest text-[#F9F7F2] bg-[#1F1B18]/60 px-3 py-1">
               Cepillado
             </span>
+          </div>
+        </div>
+
+        {/* Bruto vs Cepillado */}
+        <div className="mb-20">
+          <div className="flex items-center gap-4 mb-6">
+            <span className="font-mono-tech text-xs text-[#A67C52] uppercase tracking-[0.22em]">
+              Diferencia principal
+            </span>
+            <span className="h-px flex-1 max-w-20 bg-[#A67C52]/50" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <article className="border border-[#A67C52]/20 bg-white p-6 sm:p-8">
+              <div className="flex items-center justify-between gap-4 mb-5">
+                <div>
+                  <span className="font-mono-tech text-[10px] uppercase tracking-[0.18em] text-[#A67C52]">
+                    Terminación natural
+                  </span>
+                  <h3 className="font-heading text-3xl font-bold text-[#1F1B18] mt-1">
+                    Pino Bruto
+                  </h3>
+                </div>
+                <span className="font-mono-tech text-xs uppercase tracking-widest text-[#3E424B]/60">
+                  Aserrado
+                </span>
+              </div>
+
+              <p className="text-[#3E424B] leading-relaxed mb-6">
+                Conserva la huella del corte de aserradero. Su superficie es más rústica
+                y se usa cuando la madera no necesita una terminación visual fina.
+              </p>
+
+              <div className="space-y-3 border-t border-[#A67C52]/15 pt-5">
+                {[
+                  "Textura más áspera y natural",
+                  "Ideal para estructuras y obra",
+                  "Puede requerir lijado si quedará visible",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#A67C52]" />
+                    <span className="text-sm text-[#3E424B]">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            <article className="border border-[#A67C52]/30 bg-[#1F1B18] p-6 sm:p-8">
+              <div className="flex items-center justify-between gap-4 mb-5">
+                <div>
+                  <span className="font-mono-tech text-[10px] uppercase tracking-[0.18em] text-[#C99561]">
+                    Terminación fina
+                  </span>
+                  <h3 className="font-heading text-3xl font-bold text-[#F9F7F2] mt-1">
+                    Pino Cepillado
+                  </h3>
+                </div>
+                <span className="font-mono-tech text-xs uppercase tracking-widest text-[#F9F7F2]/50">
+                  C4C
+                </span>
+              </div>
+
+              <p className="text-[#F9F7F2]/70 leading-relaxed mb-6">
+                Pasa por cepillado para obtener caras lisas y parejas. Queda listo para
+                proyectos donde la madera será visible o necesita mejor terminación.
+              </p>
+
+              <div className="space-y-3 border-t border-[#A67C52]/25 pt-5">
+                {[
+                  "Superficie lisa y uniforme",
+                  "Ideal para terminaciones visibles",
+                  "Más cómodo para pintar, sellar o barnizar",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C99561]" />
+                    <span className="text-sm text-[#F9F7F2]/70">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </article>
+          </div>
+
+          <div className="mt-4 border border-[#A67C52]/20 bg-[#EFE7DC] px-5 py-4">
+            <p className="text-sm sm:text-base text-[#3E424B] leading-relaxed">
+              <strong className="text-[#1F1B18]">En simple:</strong> bruto = textura de aserradero;
+              cepillado = superficie lisa y pareja.
+            </p>
           </div>
         </div>
 
