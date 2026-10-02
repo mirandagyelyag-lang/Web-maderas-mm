@@ -15,8 +15,9 @@ export default function Hero() {
           alt="Stack de madera de pino"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1F1B18] via-[#1F1B18]/50 to-[#1F1B18]/30" />
-        <div className="absolute inset-0 grain-overlay opacity-30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#161210]/92 via-[#1F1B18]/62 to-[#1F1B18]/18" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A1613] via-transparent to-[#1F1B18]/16" />
+        <div className="absolute inset-0 grain-overlay opacity-12" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 pb-20 pt-32 w-full">
