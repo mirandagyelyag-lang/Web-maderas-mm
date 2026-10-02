@@ -86,45 +86,40 @@ export default function Products() {
             </div>
           </div>
           <div
-            className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden cursor-ew-resize select-none touch-none bg-[#E8D8C5]"
+            className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden cursor-ew-resize select-none touch-none"
             onMouseMove={(e) => {
               if (e.buttons !== 1) return;
               const rect = e.currentTarget.getBoundingClientRect();
               const pos = ((e.clientX - rect.left) / rect.width) * 100;
-              setSliderPos(Math.max(5, Math.min(95, pos)));
+              setSliderPos(Math.max(0, Math.min(100, pos)));
             }}
             onMouseDown={(e) => {
               const rect = e.currentTarget.getBoundingClientRect();
               const pos = ((e.clientX - rect.left) / rect.width) * 100;
-              setSliderPos(Math.max(5, Math.min(95, pos)));
+              setSliderPos(Math.max(0, Math.min(100, pos)));
             }}
             onTouchMove={(e) => {
               const rect = e.currentTarget.getBoundingClientRect();
               const pos = ((e.touches[0].clientX - rect.left) / rect.width) * 100;
-              setSliderPos(Math.max(5, Math.min(95, pos)));
+              setSliderPos(Math.max(0, Math.min(100, pos)));
             }}
           >
-            <div
-              className="absolute inset-y-0 left-0 overflow-hidden"
-              style={{ width: `${sliderPos}%` }}
-            >
-              <img
-                src={BRUTO_IMG}
-                alt="Textura de pino bruto"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </div>
+            {/* Imagen completa de cepillado debajo */}
+            <img
+              src={CEPILLADO_IMG}
+              alt="Textura de pino cepillado"
+              className="absolute inset-0 w-full h-full object-cover"
+              draggable="false"
+            />
 
-            <div
-              className="absolute inset-y-0 right-0 overflow-hidden"
-              style={{ width: `${100 - sliderPos}%` }}
-            >
-              <img
-                src={CEPILLADO_IMG}
-                alt="Textura de pino cepillado"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </div>
+            {/* Imagen completa de bruto encima, revelada por la barra */}
+            <img
+              src={BRUTO_IMG}
+              alt="Textura de pino bruto"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
+              draggable="false"
+            />
 
             <div
               className="absolute top-0 bottom-0 w-[3px] bg-[#A67C52] pointer-events-none z-20"
