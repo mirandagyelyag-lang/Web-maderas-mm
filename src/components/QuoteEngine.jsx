@@ -376,7 +376,7 @@ export default function QuoteEngine() {
                       <span className="font-mono-tech text-[9px] uppercase tracking-[0.16em] text-[#C99561] block mb-4">
                         Vista previa del WhatsApp
                       </span>
-                      <pre className="font-sans whitespace-pre-wrap text-[#F9F7F2]/82 text-sm leading-relaxed">
+                      <pre className="font-sans whitespace-pre-wrap break-words text-[#F9F7F2] text-sm leading-relaxed m-0">
                         {buildMessageText()}
                       </pre>
                     </div>
