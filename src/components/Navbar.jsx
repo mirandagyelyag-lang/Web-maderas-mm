@@ -33,7 +33,7 @@ export default function Navbar() {
           <img
             src={LOGO}
             alt="Maderas M&M"
-            className="h-14 w-14 sm:h-16 sm:w-16 object-contain transition-transform group-hover:scale-105" />
+            className="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover border border-[#A67C52]/40 shadow-lg shadow-black/20 transition-transform group-hover:scale-105" />
           
           <div className="hidden sm:block">
             <span className="block font-heading font-bold text-[#F9F7F2] text-lg leading-none tracking-wide">

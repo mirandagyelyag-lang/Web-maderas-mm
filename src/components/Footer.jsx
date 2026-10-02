@@ -21,7 +21,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-20 md:py-28 relative z-10">
         <div className="grid grid-cols-12 gap-8 mb-16">
           <div className="col-span-12 lg:col-span-5">
-            <img src={LOGO} alt="Maderas M&M" className="h-28 w-28 sm:h-32 sm:w-32 object-contain mb-6" />
+            <img src={LOGO} alt="Maderas M&M" className="h-28 w-28 sm:h-32 sm:w-32 rounded-full object-cover border-2 border-[#A67C52]/50 shadow-xl shadow-black/25 mb-6" />
             <h2 className="font-heading font-bold text-4xl md:text-5xl leading-tight text-balance">
               HABLEMOS DE<br />
               <span className="text-[#A67C52]">TU PROYECTO</span>
