@@ -3,7 +3,7 @@ import { MoveHorizontal } from "lucide-react";
 
 const BRUTO_IMG = "/assets/textura_de_madera_astillada_con_nudo.png";
 const CEPILLADO_IMG = "/assets/comparador-cepillado-final.webp";
-const TRILLAGE_IMG = "/assets/producto-trillage.svg";
+const TRILLAGE_IMG = "/assets/trillage-profesional.webp";
 
 const products = [
   {
