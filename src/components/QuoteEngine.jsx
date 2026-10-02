@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MessageCircle, Check } from "lucide-react";
 
 const ABOUT_RADIATA_IMG = "/assets/about-radiata.png";
-const ABOUT_OREGON_IMG = "/assets/about-oregon.png"; 
+const ABOUT_OREGON_IMG = "/assets/about-oregon.png";
 
 const materiales = ["Pino Bruto", "Pino Cepillado", "Rejas Trillage"];
 const acabados = ["Aserrado (Bruto)", "Cepillado C4C", "Cortes a medida"];
@@ -15,7 +15,8 @@ export default function QuoteEngine() {
   const [detalle, setDetalle] = useState("");
 
   const buildMessage = () => {
-    const msg = `Hola Maderas M&M, me gustaría cotizar lo siguiente:%0A%0A` +
+    const msg =
+      `Hola Maderas M&M, me gustaría cotizar lo siguiente:%0A%0A` +
       `• Material: ${material}%0A` +
       `• Acabado: ${acabado}%0A` +
       `• Cantidad: ${cantidad}%0A` +
@@ -30,63 +31,26 @@ export default function QuoteEngine() {
       <section className="bg-[#1F1B18] py-24 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 grain-overlay opacity-20" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-12 gap-8 items-center">
+          <div className="grid grid-cols-12 gap-10 lg:gap-14 items-center">
             <div className="col-span-12 lg:col-span-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-[#181412] border border-[#A67C52]/30 overflow-hidden">
-                 <div className"aspect-[3/4] overflow-hidden">
-                   <img
-                     src={ABOUT_RADIATA_IMG}
-                     alt="Pino Radiata"
-                     className="w-full h-full object-cover brightness-[0.82] contrast-[1.05]"
-                     />
-                </div>
-                 <div className="p-5">
-        <span className="font-mono-tech text-[10px] uppercase tracking-widest text-[#A67C52] block mb-2">
-          Pino
-        </span>
-        <h3 className="font-heading text-[#F9F7F2] text-3xl font-bold leading-none mb-3">
-          RADIATA
-        </h3>
-        <div className="h-px w-full bg-[#A67C52]/30 mb-4" />
-        <p className="font-mono-tech text-[10px] uppercase tracking-widest text-[#F9F7F2]/65 leading-relaxed">
-          Versátil y ampliamente utilizado en construcción y carpintería.
-        </p>
-      </div>
-    </div>
+              <div className="flex items-center gap-4 mb-4">
+                <span className="font-mono-tech text-xs text-[#A67C52] uppercase tracking-[0.3em]">
+                  01 / Nuestra Esencia
+                </span>
+                <span className="h-px w-16 bg-[#A67C52]/60" />
+              </div>
 
-    <div className="bg-[#181412] border border-[#A67C52]/30 overflow-hidden">
-      <div className="aspect-[3/4] overflow-hidden">
-        <img
-          src={ABOUT_OREGON_IMG}
-          alt="Pino Oregón"
-          className="w-full h-full object-cover brightness-[0.82] contrast-[1.05]"
-        />
-      </div>
-      <div className="p-5">
-        <span className="font-mono-tech text-[10px] uppercase tracking-widest text-[#A67C52] block mb-2">
-          Pino
-        </span>
-        <h3 className="font-heading text-[#F9F7F2] text-3xl font-bold leading-none mb-3">
-          OREGÓN
-        </h3>
-        <div className="h-px w-full bg-[#A67C52]/30 mb-4" />
-        <p className="font-mono-tech text-[10px] uppercase tracking-widest text-[#F9F7F2]/65 leading-relaxed">
-          Resistente, firme y de excelente terminación para proyectos duraderos.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
               <h2 className="font-heading font-bold text-[#F9F7F2] text-4xl md:text-5xl leading-tight text-balance mb-6">
                 HONESTIDAD<br />
                 <span className="text-[#A67C52]">MATERIAL</span>
               </h2>
-              <p className="text-[#F9F7F2]/70 text-lg leading-relaxed mb-6">
+
+              <p className="text-[#F9F7F2]/70 text-lg leading-relaxed mb-8">
                 En Maderas M&M celebramos el alma rústica del bosque chileno con la precisión
                 de la construcción moderna. Cada pieza de pino que sale de nuestro aserradero
                 lleva el sello de la calidad, el grano y el legado de la madera nacional.
               </p>
+
               <div className="grid grid-cols-3 gap-4">
                 {[
                   { num: "100%", label: "Pino Chileno" },
@@ -94,7 +58,9 @@ export default function QuoteEngine() {
                   { num: "A medida", label: "Cortes especiales" },
                 ].map((stat) => (
                   <div key={stat.label} className="border-l-2 border-[#A67C52] pl-3">
-                    <span className="font-heading font-bold text-[#A67C52] text-2xl block">{stat.num}</span>
+                    <span className="font-heading font-bold text-[#A67C52] text-2xl block">
+                      {stat.num}
+                    </span>
                     <span className="font-mono-tech text-[10px] uppercase tracking-widest text-[#F9F7F2]/60">
                       {stat.label}
                     </span>
@@ -102,12 +68,56 @@ export default function QuoteEngine() {
                 ))}
               </div>
             </div>
+
             <div className="col-span-12 lg:col-span-6">
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={ABOUT_IMG} 
-                  alt="Muestras de madera de pino"
-                  className="w-full h-full object-cover brightness-[0.82] contrast-[1.05]" />
-                <div className="absolute inset-0 ring-1 ring-inset ring-[#A67C52]/30" />
+              <div className="grid grid-cols-2 gap-4">
+                <article className="group bg-[#181412] border border-[#A67C52]/30 overflow-hidden">
+                  <div className="relative aspect-[3/4] overflow-hidden">
+                    <img
+                      src={ABOUT_RADIATA_IMG}
+                      alt="Pino Radiata"
+                      className="w-full h-full object-cover brightness-[0.78] contrast-[1.04] transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#181412]/85 via-transparent to-transparent" />
+                    <div className="absolute left-5 bottom-5">
+                      <span className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#D1A169]">
+                        Pino
+                      </span>
+                      <h3 className="font-heading text-[#F9F7F2] text-2xl md:text-3xl font-bold leading-none mt-1">
+                        RADIATA
+                      </h3>
+                    </div>
+                  </div>
+                  <div className="px-5 py-4 border-t border-[#A67C52]/20">
+                    <p className="font-mono-tech text-[10px] uppercase tracking-[0.12em] text-[#F9F7F2]/58 leading-relaxed">
+                      Versátil y funcional para construcción y carpintería.
+                    </p>
+                  </div>
+                </article>
+
+                <article className="group bg-[#181412] border border-[#A67C52]/30 overflow-hidden">
+                  <div className="relative aspect-[3/4] overflow-hidden">
+                    <img
+                      src={ABOUT_OREGON_IMG}
+                      alt="Pino Oregón"
+                      className="w-full h-full object-cover brightness-[0.78] contrast-[1.04] transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#181412]/85 via-transparent to-transparent" />
+                    <div className="absolute left-5 bottom-5">
+                      <span className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#D1A169]">
+                        Pino
+                      </span>
+                      <h3 className="font-heading text-[#F9F7F2] text-2xl md:text-3xl font-bold leading-none mt-1">
+                        OREGÓN
+                      </h3>
+                    </div>
+                  </div>
+                  <div className="px-5 py-4 border-t border-[#A67C52]/20">
+                    <p className="font-mono-tech text-[10px] uppercase tracking-[0.12em] text-[#F9F7F2]/58 leading-relaxed">
+                      Firme, resistente y de excelente terminación.
+                    </p>
+                  </div>
+                </article>
               </div>
             </div>
           </div>
