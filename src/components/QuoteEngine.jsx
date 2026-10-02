@@ -33,8 +33,8 @@ export default function QuoteEngine() {
         <div className="w-full max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full min-w-0">
             <div className="w-full min-w-0 lg:col-span-6">
-              <div className="flex items-center gap-4 mb-4">
-                <span className="font-mono-tech text-xs text-[#A67C52] uppercase tracking-[0.3em]">
+              <div className="flex items-center gap-4 mb-4 min-w-0">
+                <span className="font-mono-tech text-xs text-[#A67C52] uppercase tracking-[0.22em] sm:tracking-[0.3em] whitespace-nowrap">
                   01 / Nuestra Esencia
                 </span>
                 <span className="h-px w-16 bg-[#A67C52]/60" />
@@ -45,7 +45,7 @@ export default function QuoteEngine() {
                 <span className="text-[#A67C52]">MATERIAL</span>
               </h2>
 
-              <p className="w-full max-w-full text-[#F9F7F2]/70 text-[17px] sm:text-lg leading-relaxed mb-8 whitespace-normal break-words [overflow-wrap:anywhere]">
+              <p className="block w-full max-w-xl text-[#F9F7F2]/70 text-[17px] sm:text-lg leading-relaxed mb-8 whitespace-normal break-normal">
                 En Maderas M&M celebramos el alma rústica del bosque chileno con la precisión
                 de la construcción moderna. Cada pieza de pino que sale de nuestro aserradero
                 lleva el sello de la calidad, el grano y el legado de la madera nacional.
