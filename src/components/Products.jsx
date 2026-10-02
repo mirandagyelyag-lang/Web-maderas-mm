@@ -243,19 +243,19 @@ export default function Products() {
                       : "object-cover"
                   }`}
                 />
-                <div
-                  className={`absolute inset-0 pointer-events-none ${
-                    p.tipo === "Tralix"
-                      ? "bg-gradient-to-t from-[#1F1B18]/78 via-[#1F1B18]/10 to-transparent"
-                      : "bg-gradient-to-t from-[#1F1B18]/80 via-transparent to-transparent"
-                  }`}
-                />
-                <span className="absolute top-4 left-4 font-mono-tech text-xs uppercase tracking-widest text-[#F9F7F2] bg-[#A67C52] px-3 py-1.5">
+
+                {/* Misma zona de contraste para TODAS las tarjetas */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1F1B18]/90 via-[#1F1B18]/30 to-transparent pointer-events-none" />
+
+                <span className="absolute top-4 left-4 z-20 font-mono-tech text-xs uppercase tracking-widest text-[#F9F7F2] bg-[#A67C52] px-3 py-1.5">
                   {p.tipo}
                 </span>
-                <h3 className="absolute bottom-4 left-5 font-heading font-bold text-[#F9F7F2] text-3xl">
-                  {p.nombre}
-                </h3>
+
+                <div className="absolute inset-x-0 bottom-0 z-20 px-5 pb-5 pt-12">
+                  <h3 className="font-heading font-bold text-[#F9F7F2] text-[28px] sm:text-3xl leading-[1.02] drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]">
+                    {p.nombre}
+                  </h3>
+                </div>
               </div>
 
               <div className="p-6">
