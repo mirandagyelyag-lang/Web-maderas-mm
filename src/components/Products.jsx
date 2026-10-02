@@ -233,18 +233,20 @@ export default function Products() {
               key={p.tipo}
               className="group relative bg-white border border-[#A67C52]/20 overflow-hidden transition-all hover:border-[#A67C52] hover:shadow-2xl hover:shadow-[#A67C52]/10"
             >
-              <div className={`relative h-72 overflow-hidden ${p.tipo === "Tralix" ? "bg-[#EFE6D8]" : ""}`}>
+              <div className={`relative overflow-hidden ${p.tipo === "Tralix" ? "h-80 sm:h-96 bg-[#1F1B18]" : "h-72"}`}>
                 <img
                   src={p.img}
                   alt={p.nombre}
                   className={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${
-                    p.tipo === "Tralix" ? "object-contain p-4" : "object-cover"
+                    p.tipo === "Tralix"
+                      ? "object-cover object-[50%_52%]"
+                      : "object-cover"
                   }`}
                 />
                 <div
                   className={`absolute inset-0 pointer-events-none ${
                     p.tipo === "Tralix"
-                      ? "bg-gradient-to-t from-[#1F1B18]/55 via-transparent to-transparent"
+                      ? "bg-gradient-to-t from-[#1F1B18]/78 via-[#1F1B18]/10 to-transparent"
                       : "bg-gradient-to-t from-[#1F1B18]/80 via-transparent to-transparent"
                   }`}
                 />
