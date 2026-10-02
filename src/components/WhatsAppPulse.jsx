@@ -1,103 +1,87 @@
-import React, { useMemo, useState } from "react";
-import { MessageCircle, X, ArrowRight, RotateCcw, Sparkles } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { MessageCircle, X, Send, Loader2, ExternalLink } from "lucide-react";
 
 const phoneRaw = "56953488200";
 
-const questions = [
-  {
-    key: "need",
-    text: "¿Qué estás buscando para tu proyecto?",
-    options: ["Madera para construcción", "Madera para terminaciones", "Rejas Trillage", "No estoy segura/o"],
-  },
-  {
-    key: "priority",
-    text: "¿Qué es lo más importante para ti?",
-    options: ["Precio", "Terminación", "Resistencia", "Que me asesoren"],
-  },
-  {
-    key: "quantity",
-    text: "¿Qué cantidad necesitas aproximadamente?",
-    options: ["Poca", "Media", "Alta", "Todavía no sé"],
-  },
-  {
-    key: "delivery",
-    text: "¿Necesitas despacho?",
-    options: ["Sí", "No", "Quiero consultar"],
-  },
+const starterQuestions = [
+  "¿Qué diferencia hay entre bruto y cepillado?",
+  "¿Qué madera me conviene para construir?",
+  "Quiero una reja para el jardín",
 ];
-
-function getRecommendation(answers) {
-  if (answers.need === "Rejas Trillage") {
-    return {
-      title: "Rejas Trillage",
-      reason: "Para cierres y divisiones decorativas, es la opción más directa. Podemos ayudarte con formato, cantidad y despacho.",
-    };
-  }
-
-  if (answers.need === "Madera para terminaciones" || answers.priority === "Terminación") {
-    return {
-      title: "Pino Cepillado",
-      reason: "Si buscas una superficie limpia y lista para quedar a la vista, el cepillado suele ser la alternativa más conveniente.",
-    };
-  }
-
-  if (answers.need === "Madera para construcción" || answers.priority === "Precio") {
-    return {
-      title: "Pino Bruto",
-      reason: "Para estructura y obra, el bruto conserva la terminación de aserrado y suele ser una opción práctica y eficiente.",
-    };
-  }
-
-  if (answers.priority === "Resistencia") {
-    return {
-      title: "Pino Oregón",
-      reason: "Si tu prioridad es una madera firme y con presencia, conviene consultar disponibilidad y medidas en Pino Oregón.",
-    };
-  }
-
-  return {
-    title: "Te ayudamos a elegir",
-    reason: "Con tus respuestas ya podemos orientarte mejor y confirmar qué formato conviene para tu proyecto.",
-  };
-}
 
 export default function WhatsAppPulse() {
   const [open, setOpen] = useState(false);
-  const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState({});
+  const [input, setInput] = useState("");
+  const [sending, setSending] = useState(false);
+  const [messages, setMessages] = useState([
+    {
+      role: "assistant",
+      content:
+        "¡Hola! 👋 Soy el asistente de Maderas M&M. Pregúntame por tipos de madera, medidas, terminaciones, usos o qué producto te conviene para tu proyecto.",
+    },
+  ]);
 
-  const finished = step >= questions.length;
-  const recommendation = useMemo(() => getRecommendation(answers), [answers]);
+  const endRef = useRef(null);
 
-  const choose = (value) => {
-    const q = questions[step];
-    setAnswers((prev) => ({ ...prev, [q.key]: value }));
-    setStep((prev) => prev + 1);
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, sending]);
+
+  const sendMessage = async (text = input) => {
+    const clean = text.trim();
+    if (!clean || sending) return;
+
+    const nextMessages = [...messages, { role: "user", content: clean }];
+    setMessages(nextMessages);
+    setInput("");
+    setSending(true);
+
+    try {
+      const response = await fetch("/api/maderas-assistant", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: nextMessages.map(({ role, content }) => ({ role, content })),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data?.error || "No pude responder.");
+      }
+
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: data.reply },
+      ]);
+    } catch (error) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content:
+            error?.message ||
+            "No pude responder justo ahora. Puedes escribirnos por WhatsApp y te ayudamos directamente.",
+        },
+      ]);
+    } finally {
+      setSending(false);
+    }
   };
 
-  const reset = () => {
-    setStep(0);
-    setAnswers({});
+  const whatsappSummary = () => {
+    const conversation = messages
+      .slice(1)
+      .map((m) => `${m.role === "user" ? "Cliente" : "Asistente"}: ${m.content}`)
+      .join("\n");
+
+    const text =
+      "Hola Maderas M&M 👋\nEstuve conversando con el asistente de la web y quiero continuar mi consulta.\n\n" +
+      conversation.slice(-2500);
+
+    return `https://wa.me/${phoneRaw}?text=${encodeURIComponent(text)}`;
   };
-
-  const message = useMemo(() => {
-    if (!finished) return "";
-    const lines = [
-      "Hola Maderas M&M 👋",
-      "Estuve usando el asistente de la web y me gustaría cotizar.",
-      "",
-      `• Necesidad: ${answers.need || "-"}`,
-      `• Prioridad: ${answers.priority || "-"}`,
-      `• Cantidad aprox.: ${answers.quantity || "-"}`,
-      `• Despacho: ${answers.delivery || "-"}`,
-      `• Recomendación mostrada: ${recommendation.title}`,
-      "",
-      "¿Me pueden orientar con disponibilidad, medidas y valor?",
-    ];
-    return lines.join("\n");
-  }, [finished, answers, recommendation]);
-
-  const whatsappHref = `https://wa.me/${phoneRaw}?text=${encodeURIComponent(message)}`;
 
   return (
     <>
@@ -105,7 +89,7 @@ export default function WhatsAppPulse() {
         type="button"
         onClick={() => setOpen(true)}
         className="fixed bottom-6 right-6 z-40 group"
-        aria-label="Abrir asistente de cotización"
+        aria-label="Abrir asistente M&M"
       >
         <span className="absolute inset-0 rounded-full bg-[#A67C52] animate-ping opacity-25" />
         <span className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#A67C52] text-[#F9F7F2] shadow-lg shadow-[#A67C52]/40 hover:bg-[#8B693A] transition-colors">
@@ -114,106 +98,117 @@ export default function WhatsAppPulse() {
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-[70] flex items-end sm:items-center justify-center bg-black/55 backdrop-blur-sm px-0 sm:px-5">
-          <div className="w-full sm:max-w-md bg-[#F9F7F2] border border-[#A67C52]/25 shadow-2xl max-h-[88vh] overflow-y-auto">
-            <div className="sticky top-0 z-10 bg-[#1F1B18] text-[#F9F7F2] px-5 py-4 flex items-center justify-between border-b border-[#A67C52]/20">
-              <div className="flex items-center gap-3">
-                <span className="w-9 h-9 rounded-full bg-[#A67C52] flex items-center justify-center">
-                  <Sparkles size={18} />
-                </span>
-                <div>
+        <div className="fixed inset-0 z-[70] flex items-end sm:items-center justify-center bg-black/55 backdrop-blur-sm sm:px-5">
+          <div className="w-full sm:max-w-md h-[82vh] sm:h-[680px] sm:max-h-[86vh] bg-[#F9F7F2] border border-[#A67C52]/25 shadow-2xl flex flex-col">
+            <div className="bg-[#1F1B18] text-[#F9F7F2] px-5 py-4 flex items-center justify-between border-b border-[#A67C52]/20 shrink-0">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#A67C52]" />
                   <p className="font-heading font-bold text-sm">Asistente M&M</p>
-                  <p className="text-[11px] text-[#F9F7F2]/55">Te orienta antes de cotizar</p>
                 </div>
+                <p className="text-[11px] text-[#F9F7F2]/55 mt-0.5">
+                  Pregunta lo que necesites sobre madera
+                </p>
               </div>
-              <button onClick={() => setOpen(false)} aria-label="Cerrar" className="text-[#F9F7F2]/70 hover:text-white">
+              <button
+                onClick={() => setOpen(false)}
+                aria-label="Cerrar"
+                className="text-[#F9F7F2]/70 hover:text-white"
+              >
                 <X size={22} />
               </button>
             </div>
 
-            {!finished ? (
-              <div className="p-5 sm:p-6">
-                <div className="flex items-center justify-between mb-5">
-                  <span className="font-mono-tech text-[10px] uppercase tracking-[0.16em] text-[#A67C52]">
-                    Pregunta {step + 1} de {questions.length}
-                  </span>
-                  <span className="text-xs text-[#3E424B]/45">{Math.round(((step + 1) / questions.length) * 100)}%</span>
+            <div className="flex-1 overflow-y-auto px-4 py-5 space-y-4">
+              {messages.map((message, index) => (
+                <div
+                  key={index}
+                  className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+                >
+                  <div
+                    className={`max-w-[86%] px-4 py-3 text-sm leading-relaxed ${
+                      message.role === "user"
+                        ? "bg-[#A67C52] text-[#F9F7F2] rounded-2xl rounded-br-sm"
+                        : "bg-white border border-[#A67C52]/15 text-[#2C2926] rounded-2xl rounded-bl-sm"
+                    }`}
+                  >
+                    {message.content}
+                  </div>
                 </div>
+              ))}
 
-                <div className="h-1 bg-[#E8DED2] mb-7 overflow-hidden">
-                  <div className="h-full bg-[#A67C52] transition-all" style={{ width: `${((step + 1) / questions.length) * 100}%` }} />
-                </div>
-
-                <h3 className="font-heading font-bold text-[#1F1B18] text-2xl leading-tight mb-5">
-                  {questions[step].text}
-                </h3>
-
-                <div className="space-y-3">
-                  {questions[step].options.map((option) => (
+              {messages.length === 1 && (
+                <div className="pt-1 space-y-2">
+                  <p className="font-mono-tech text-[9px] uppercase tracking-[0.16em] text-[#A67C52]">
+                    Puedes preguntarme
+                  </p>
+                  {starterQuestions.map((question) => (
                     <button
-                      key={option}
-                      onClick={() => choose(option)}
-                      className="w-full flex items-center justify-between gap-3 text-left px-4 py-4 bg-white border border-[#A67C52]/20 hover:border-[#A67C52] hover:bg-[#F3ECE3] transition-colors"
+                      key={question}
+                      onClick={() => sendMessage(question)}
+                      className="w-full text-left bg-[#F3ECE3] border border-[#A67C52]/18 px-4 py-3 text-sm text-[#3E424B] hover:border-[#A67C52] transition-colors"
                     >
-                      <span className="font-heading font-semibold text-[#1F1B18] text-sm">{option}</span>
-                      <ArrowRight size={17} className="text-[#A67C52]" />
+                      {question}
                     </button>
                   ))}
                 </div>
+              )}
 
-                {step > 0 && (
-                  <button
-                    onClick={() => setStep((prev) => Math.max(0, prev - 1))}
-                    className="mt-5 text-[10px] font-mono-tech uppercase tracking-[0.14em] text-[#3E424B]/50 hover:text-[#1F1B18]"
-                  >
-                    Volver
-                  </button>
-                )}
-              </div>
-            ) : (
-              <div className="p-5 sm:p-6">
-                <span className="font-mono-tech text-[10px] uppercase tracking-[0.16em] text-[#A67C52]">
-                  Recomendación
-                </span>
-
-                <h3 className="font-heading font-bold text-[#1F1B18] text-3xl mt-2">
-                  {recommendation.title}
-                </h3>
-                <p className="text-[#3E424B] leading-relaxed mt-3 text-sm">
-                  {recommendation.reason}
-                </p>
-
-                <div className="mt-6 bg-white border border-[#A67C52]/20 p-4">
-                  <p className="font-mono-tech text-[9px] uppercase tracking-[0.15em] text-[#A67C52] mb-3">
-                    Tu consulta
-                  </p>
-                  <div className="space-y-2 text-sm text-[#3E424B]">
-                    <p><strong>Buscas:</strong> {answers.need}</p>
-                    <p><strong>Prioridad:</strong> {answers.priority}</p>
-                    <p><strong>Cantidad:</strong> {answers.quantity}</p>
-                    <p><strong>Despacho:</strong> {answers.delivery}</p>
+              {sending && (
+                <div className="flex justify-start">
+                  <div className="bg-white border border-[#A67C52]/15 px-4 py-3 rounded-2xl rounded-bl-sm text-[#A67C52]">
+                    <Loader2 size={18} className="animate-spin" />
                   </div>
                 </div>
+              )}
 
+              <div ref={endRef} />
+            </div>
+
+            {messages.length > 2 && (
+              <div className="px-4 pb-3 shrink-0">
                 <a
-                  href={whatsappHref}
+                  href={whatsappSummary()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-5 flex w-full items-center justify-center gap-2 bg-[#A67C52] text-[#F9F7F2] px-4 py-4 font-heading font-semibold hover:bg-[#8B693A] transition-colors"
+                  className="flex items-center justify-center gap-2 w-full border border-[#A67C52]/25 bg-white text-[#1F1B18] px-4 py-3 font-heading font-semibold text-xs hover:border-[#A67C52] transition-colors"
                 >
-                  <MessageCircle size={18} />
-                  CONTINUAR POR WHATSAPP
+                  <MessageCircle size={16} className="text-[#A67C52]" />
+                  CONTINUAR CON UNA PERSONA POR WHATSAPP
+                  <ExternalLink size={13} className="opacity-50" />
                 </a>
-
-                <button
-                  onClick={reset}
-                  className="mt-4 w-full inline-flex items-center justify-center gap-2 text-[10px] font-mono-tech uppercase tracking-[0.14em] text-[#3E424B]/50 hover:text-[#1F1B18]"
-                >
-                  <RotateCcw size={13} />
-                  Empezar de nuevo
-                </button>
               </div>
             )}
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                sendMessage();
+              }}
+              className="border-t border-[#A67C52]/18 bg-white p-3 flex items-end gap-2 shrink-0"
+            >
+              <textarea
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                  }
+                }}
+                rows={1}
+                placeholder="Escribe tu pregunta..."
+                className="flex-1 max-h-28 resize-none bg-[#F9F7F2] border border-[#A67C52]/18 px-4 py-3 text-sm text-[#1F1B18] placeholder:text-[#3E424B]/40 focus:outline-none focus:border-[#A67C52]"
+              />
+              <button
+                type="submit"
+                disabled={!input.trim() || sending}
+                className="w-11 h-11 shrink-0 flex items-center justify-center bg-[#A67C52] text-white disabled:opacity-35 hover:bg-[#8B693A] transition-colors"
+                aria-label="Enviar pregunta"
+              >
+                {sending ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
+              </button>
+            </form>
           </div>
         </div>
       )}
