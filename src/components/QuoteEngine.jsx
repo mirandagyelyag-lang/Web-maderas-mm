@@ -275,10 +275,10 @@ export default function QuoteEngine() {
                   href={buildMessage()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 w-full bg-[#A67C52] text-[#F9F7F2] py-4 font-heading font-semibold tracking-wide hover:bg-[#8B693A] transition-colors"
+                  className="group flex w-full items-center justify-center gap-2.5 bg-[#A67C52] px-4 py-4 text-[#F9F7F2] font-heading font-semibold text-[14px] sm:text-base leading-none tracking-[0.03em] hover:bg-[#8B693A] transition-colors"
                 >
-                  <MessageCircle size={20} />
-                  SOLICITAR COTIZACIÓN POR WHATSAPP
+                  <MessageCircle size={18} className="shrink-0" />
+                  <span className="whitespace-nowrap">COTIZAR POR WHATSAPP</span>
                 </a>
               </div>
             </div>
