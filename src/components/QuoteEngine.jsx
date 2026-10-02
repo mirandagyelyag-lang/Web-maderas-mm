@@ -33,17 +33,17 @@ export default function QuoteEngine() {
         <div className="absolute inset-0 grain-overlay opacity-10 pointer-events-none" />
 
         <div className="w-full max-w-7xl mx-auto px-5 sm:px-6 py-20 md:py-28 relative z-10">
-          <div className="relative overflow-hidden border border-[#A67C52]/20 min-h-[660px] sm:min-h-[620px] md:min-h-[680px]">
-            <img
-              src={ABOUT_REALISTA_IMG}
-              alt="Madera de pino trabajada por Maderas M&M"
-              className="absolute inset-0 w-full h-full object-cover brightness-[0.46] saturate-[0.82]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#15110f]/32 via-[#15110f]/58 to-[#15110f]/96" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#15110f]/76 via-[#15110f]/30 to-transparent" />
+          <div className="overflow-hidden border border-[#A67C52]/25 bg-[#171310]">
+            <div className="relative min-h-[560px] sm:min-h-[600px] md:min-h-[640px]">
+              <img
+                src={ABOUT_REALISTA_IMG}
+                alt="Madera de pino trabajada por Maderas M&M"
+                className="absolute inset-0 w-full h-full object-cover brightness-[0.42] saturate-[0.82]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#120f0d]/45 via-[#120f0d]/72 to-[#120f0d]/95" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#120f0d]/80 via-[#120f0d]/45 to-[#120f0d]/20" />
 
-            <div className="relative z-10 min-h-[660px] sm:min-h-[620px] md:min-h-[680px] flex flex-col justify-between p-6 sm:p-8 md:p-12">
-              <div className="max-w-2xl">
+              <div className="relative z-10 p-6 sm:p-8 md:p-12">
                 <div className="flex items-center gap-4 mb-5">
                   <span className="font-mono-tech text-[11px] sm:text-xs text-[#C99561] uppercase tracking-[0.18em] sm:tracking-[0.28em] whitespace-nowrap">
                     01 / Nuestra Esencia
@@ -51,44 +51,44 @@ export default function QuoteEngine() {
                   <span className="h-px w-12 sm:w-16 bg-[#A67C52]/70" />
                 </div>
 
-                <h2 className="font-heading font-bold text-[#F9F7F2] text-[44px] sm:text-5xl md:text-6xl leading-[0.96] tracking-tight mb-6">
+                <h2 className="font-heading font-bold text-[#F9F7F2] text-[42px] sm:text-5xl md:text-6xl leading-[0.97] tracking-tight mb-6">
                   HONESTIDAD<br />
                   <span className="text-[#B88655]">MATERIAL</span>
                 </h2>
 
-                <p className="max-w-xl text-[#F9F7F2]/78 text-[16px] sm:text-lg leading-relaxed mb-7">
+                <p className="max-w-xl text-[#F9F7F2]/80 text-[16px] sm:text-lg leading-relaxed mb-7">
                   Trabajamos la madera respetando su carácter natural, combinando oficio,
                   precisión y cortes a medida para cada proyecto.
                 </p>
 
                 <a
                   href="#especies"
-                  className="inline-flex items-center gap-3 bg-[#B88655] text-[#F9F7F2] px-5 sm:px-6 py-3.5 font-heading font-semibold text-sm tracking-wide hover:bg-[#9C7048] transition-colors"
+                  className="inline-flex items-center justify-center gap-3 bg-[#B88655] text-[#F9F7F2] px-5 sm:px-6 py-3.5 font-heading font-semibold text-[13px] sm:text-sm tracking-wide hover:bg-[#9C7048] transition-colors"
                 >
                   CONOCE NUESTRAS MADERAS
                   <span aria-hidden="true">→</span>
                 </a>
               </div>
+            </div>
 
-              <div className="grid grid-cols-3 gap-0 border-t border-[#F9F7F2]/15 pt-6 mt-10">
-                {[
-                  { num: "100%", label: "Pino chileno" },
-                  { num: "C4C", label: "Cepillado 4 caras" },
-                  { num: "A medida", label: "Cortes especiales" },
-                ].map((stat, index) => (
-                  <div
-                    key={stat.label}
-                    className={`min-w-0 px-3 sm:px-5 ${index > 0 ? "border-l border-[#A67C52]/35" : ""}`}
-                  >
-                    <span className="font-heading font-bold text-[#C99561] text-xl sm:text-2xl block leading-none">
-                      {stat.num}
-                    </span>
-                    <span className="font-mono-tech text-[8px] sm:text-[10px] uppercase tracking-[0.08em] sm:tracking-[0.12em] text-[#F9F7F2]/58 block mt-2 leading-snug">
-                      {stat.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
+            <div className="relative z-10 grid grid-cols-3 gap-0 bg-[#171310]/95 border-t border-[#A67C52]/25">
+              {[
+                { num: "100%", label: "Pino chileno" },
+                { num: "C4C", label: "Cepillado 4 caras" },
+                { num: "A medida", label: "Cortes especiales" },
+              ].map((stat, index) => (
+                <div
+                  key={stat.label}
+                  className={`min-w-0 px-3 sm:px-5 py-5 sm:py-6 ${index > 0 ? "border-l border-[#A67C52]/30" : ""}`}
+                >
+                  <span className="font-heading font-bold text-[#C99561] text-[21px] sm:text-2xl block leading-tight">
+                    {stat.num}
+                  </span>
+                  <span className="font-mono-tech text-[8px] sm:text-[10px] uppercase tracking-[0.06em] sm:tracking-[0.1em] text-[#F9F7F2]/60 block mt-2 leading-snug">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
 
