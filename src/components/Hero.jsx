@@ -61,7 +61,7 @@ export default function Hero() {
                 Especies
               </span>
               <span className="font-heading text-[#F9F7F2] text-2xl font-semibold block mt-1">
-                Pino Radiata
+                Pino Radiata · Pino Oregón
               </span>
             </div>
             <div className="border-l-2 border-[#A67C52]/50 pl-5 text-right">
