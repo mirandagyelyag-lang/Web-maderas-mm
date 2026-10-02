@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { MoveHorizontal } from "lucide-react";
 
-const BRUTO_IMG = "/assets/producto-bruto.svg";
-const CEPILLADO_IMG = "/assets/producto-cepillado.svg";
+const BRUTO_IMG = "/assets/comparador-bruto.webp";
+const CEPILLADO_IMG = "/assets/comparador-cepillado.webp";
 const TRILLAGE_IMG = "/assets/producto-trillage.svg";
 
 const products = [
