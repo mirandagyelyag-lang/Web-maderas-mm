@@ -17,7 +17,7 @@ export default function Hero() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#120f0d]/95 via-[#1a1512]/72 to-[#1f1b18]/35" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#120f0d]/80 via-[#120f0d]/18 to-[#1f1b18]/12" />
-        <div className="absolute inset-0 bg-black/18 />
+        <div className="absolute inset-0 bg-black/18" />
         <div className="absolute inset-0 grain-overlay opacity-10" />
       </div>
 
