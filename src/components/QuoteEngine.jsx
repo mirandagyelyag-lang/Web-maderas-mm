@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { MessageCircle, Check } from "lucide-react";
 
-const ABOUT_IMG = "/assets/about-realista.png";
+const ABOUT_RADIATA_IMG = "/assets/about-radiata.png";
+const ABOUT_OREGON_IMG = "/assets/about-oregon.png"; 
 
 const materiales = ["Pino Bruto", "Pino Cepillado", "Rejas Trillage"];
 const acabados = ["Aserrado (Bruto)", "Cepillado C4C", "Cortes a medida"];
@@ -31,12 +32,52 @@ export default function QuoteEngine() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-12 gap-8 items-center">
             <div className="col-span-12 lg:col-span-6">
-              <div className="flex items-center gap-4 mb-4">
-                <span className="font-mono-tech text-xs text-[#A67C52] uppercase tracking-[0.3em]">
-                  01 / Nuestra Esencia
-                </span>
-                <span className="h-px w-16 bg-[#A67C52]/60" />
-              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-[#181412] border border-[#A67C52]/30 overflow-hidden">
+                 <div className"aspect-[3/4] overflow-hidden">
+                   <img
+                     src={ABOUT_RADIATA_IMG}
+                     alt="Pino Radiata"
+                     className="w-full h-full object-cover brightness-[0.82] contrast-[1.05]"
+                     />
+                </div>
+                 <div className="p-5">
+        <span className="font-mono-tech text-[10px] uppercase tracking-widest text-[#A67C52] block mb-2">
+          Pino
+        </span>
+        <h3 className="font-heading text-[#F9F7F2] text-3xl font-bold leading-none mb-3">
+          RADIATA
+        </h3>
+        <div className="h-px w-full bg-[#A67C52]/30 mb-4" />
+        <p className="font-mono-tech text-[10px] uppercase tracking-widest text-[#F9F7F2]/65 leading-relaxed">
+          Versátil y ampliamente utilizado en construcción y carpintería.
+        </p>
+      </div>
+    </div>
+
+    <div className="bg-[#181412] border border-[#A67C52]/30 overflow-hidden">
+      <div className="aspect-[3/4] overflow-hidden">
+        <img
+          src={ABOUT_OREGON_IMG}
+          alt="Pino Oregón"
+          className="w-full h-full object-cover brightness-[0.82] contrast-[1.05]"
+        />
+      </div>
+      <div className="p-5">
+        <span className="font-mono-tech text-[10px] uppercase tracking-widest text-[#A67C52] block mb-2">
+          Pino
+        </span>
+        <h3 className="font-heading text-[#F9F7F2] text-3xl font-bold leading-none mb-3">
+          OREGÓN
+        </h3>
+        <div className="h-px w-full bg-[#A67C52]/30 mb-4" />
+        <p className="font-mono-tech text-[10px] uppercase tracking-widest text-[#F9F7F2]/65 leading-relaxed">
+          Resistente, firme y de excelente terminación para proyectos duraderos.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
               <h2 className="font-heading font-bold text-[#F9F7F2] text-4xl md:text-5xl leading-tight text-balance mb-6">
                 HONESTIDAD<br />
                 <span className="text-[#A67C52]">MATERIAL</span>
