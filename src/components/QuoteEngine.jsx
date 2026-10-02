@@ -32,38 +32,37 @@ export default function QuoteEngine() {
       <section className="w-full bg-[#1F1B18] relative overflow-hidden">
         <div className="absolute inset-0 grain-overlay opacity-10 pointer-events-none" />
 
-        <div className="w-full max-w-7xl mx-auto px-5 sm:px-6 py-20 md:py-28 relative z-10">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20 md:py-28 relative z-10">
           <div className="overflow-hidden border border-[#A67C52]/25 bg-[#171310]">
-            <div className="relative min-h-[560px] sm:min-h-[600px] md:min-h-[640px]">
+            <div className="relative">
               <img
                 src={ABOUT_REALISTA_IMG}
                 alt="Madera de pino trabajada por Maderas M&M"
-                className="absolute inset-0 w-full h-full object-cover brightness-[0.42] saturate-[0.82]"
+                className="absolute inset-0 w-full h-full object-cover object-center brightness-[0.38] saturate-[0.78]"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-[#120f0d]/45 via-[#120f0d]/72 to-[#120f0d]/95" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#120f0d]/80 via-[#120f0d]/45 to-[#120f0d]/20" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#120f0d]/55 via-[#120f0d]/72 to-[#120f0d]/94" />
 
-              <div className="relative z-10 p-6 sm:p-8 md:p-12">
-                <div className="flex items-center gap-4 mb-5">
-                  <span className="font-mono-tech text-[11px] sm:text-xs text-[#C99561] uppercase tracking-[0.18em] sm:tracking-[0.28em] whitespace-nowrap">
+              <div className="relative z-10 px-6 py-10 sm:px-9 sm:py-12 md:px-12 md:py-16">
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="font-mono-tech text-[10px] sm:text-xs text-[#C99561] uppercase tracking-[0.16em] sm:tracking-[0.24em] whitespace-nowrap">
                     01 / Nuestra Esencia
                   </span>
-                  <span className="h-px w-12 sm:w-16 bg-[#A67C52]/70" />
+                  <span className="h-px flex-1 max-w-16 bg-[#A67C52]/65" />
                 </div>
 
-                <h2 className="font-heading font-bold text-[#F9F7F2] text-[42px] sm:text-5xl md:text-6xl leading-[0.97] tracking-tight mb-6">
+                <h2 className="font-heading font-bold text-[#F9F7F2] text-[38px] min-[390px]:text-[42px] sm:text-5xl md:text-6xl leading-[0.96] tracking-tight mb-6">
                   HONESTIDAD<br />
                   <span className="text-[#B88655]">MATERIAL</span>
                 </h2>
 
-                <p className="max-w-xl text-[#F9F7F2]/80 text-[16px] sm:text-lg leading-relaxed mb-7">
+                <p className="w-full max-w-xl text-[#F9F7F2]/78 text-[15px] sm:text-lg leading-[1.7] mb-7">
                   Trabajamos la madera respetando su carácter natural, combinando oficio,
                   precisión y cortes a medida para cada proyecto.
                 </p>
 
                 <a
                   href="#especies"
-                  className="inline-flex items-center justify-center gap-3 bg-[#B88655] text-[#F9F7F2] px-5 sm:px-6 py-3.5 font-heading font-semibold text-[13px] sm:text-sm tracking-wide hover:bg-[#9C7048] transition-colors"
+                  className="flex sm:inline-flex w-full sm:w-auto items-center justify-center gap-3 bg-[#B88655] text-[#F9F7F2] px-5 sm:px-6 py-3.5 font-heading font-semibold text-[12px] sm:text-sm tracking-[0.04em] hover:bg-[#9C7048] transition-colors"
                 >
                   CONOCE NUESTRAS MADERAS
                   <span aria-hidden="true">→</span>
@@ -71,7 +70,7 @@ export default function QuoteEngine() {
               </div>
             </div>
 
-            <div className="relative z-10 grid grid-cols-3 gap-0 bg-[#171310]/95 border-t border-[#A67C52]/25">
+            <div className="grid grid-cols-3 bg-[#171310] border-t border-[#A67C52]/25">
               {[
                 { num: "100%", label: "Pino chileno" },
                 { num: "C4C", label: "Cepillado 4 caras" },
@@ -79,12 +78,16 @@ export default function QuoteEngine() {
               ].map((stat, index) => (
                 <div
                   key={stat.label}
-                  className={`min-w-0 px-3 sm:px-5 py-5 sm:py-6 ${index > 0 ? "border-l border-[#A67C52]/30" : ""}`}
+                  className={`min-w-0 px-2.5 min-[390px]:px-3.5 sm:px-5 py-5 sm:py-6 text-center ${index > 0 ? "border-l border-[#A67C52]/30" : ""}`}
                 >
-                  <span className="font-heading font-bold text-[#C99561] text-[21px] sm:text-2xl block leading-tight">
+                  <span className={`font-heading font-bold text-[#C99561] block leading-tight ${
+                    stat.num === "A medida"
+                      ? "text-[16px] min-[390px]:text-[18px] sm:text-2xl"
+                      : "text-[20px] min-[390px]:text-[22px] sm:text-2xl"
+                  }`}>
                     {stat.num}
                   </span>
-                  <span className="font-mono-tech text-[8px] sm:text-[10px] uppercase tracking-[0.06em] sm:tracking-[0.1em] text-[#F9F7F2]/60 block mt-2 leading-snug">
+                  <span className="font-mono-tech text-[7px] min-[390px]:text-[8px] sm:text-[10px] uppercase tracking-[0.04em] sm:tracking-[0.1em] text-[#F9F7F2]/58 block mt-2 leading-[1.35]">
                     {stat.label}
                   </span>
                 </div>
@@ -92,16 +95,14 @@ export default function QuoteEngine() {
             </div>
           </div>
 
-          <div id="especies" className="pt-14 md:pt-18">
-            <div className="flex items-end justify-between gap-6 mb-6">
-              <div>
-                <span className="font-mono-tech text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#A67C52]">
-                  Especies trabajadas
-                </span>
-                <h3 className="font-heading text-[#F9F7F2] text-2xl sm:text-3xl font-bold mt-2">
-                  Dos pinos, dos caracteres
-                </h3>
-              </div>
+          <div id="especies" className="pt-12 sm:pt-14 md:pt-16">
+            <div className="mb-6">
+              <span className="font-mono-tech text-[10px] sm:text-xs uppercase tracking-[0.18em] text-[#A67C52]">
+                Especies trabajadas
+              </span>
+              <h3 className="font-heading text-[#F9F7F2] text-2xl sm:text-3xl font-bold mt-2">
+                Dos pinos, dos caracteres
+              </h3>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -110,16 +111,20 @@ export default function QuoteEngine() {
                   <img
                     src={ABOUT_RADIATA_IMG}
                     alt="Pino Radiata"
-                    className="w-full h-full object-cover brightness-[0.74] contrast-[1.03] transition-transform duration-700 group-hover:scale-[1.03]"
+                    className="w-full h-full object-cover brightness-[0.72] contrast-[1.03] transition-transform duration-700 group-hover:scale-[1.03]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#181412]/92 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#181412]/95 via-[#181412]/10 to-transparent" />
                   <div className="absolute left-5 right-5 bottom-5">
-                    <span className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#D1A169]">Pino</span>
-                    <h4 className="font-heading text-[#F9F7F2] text-3xl font-bold leading-none mt-1">RADIATA</h4>
+                    <span className="font-mono-tech text-[10px] uppercase tracking-[0.2em] text-[#D1A169]">
+                      Pino
+                    </span>
+                    <h4 className="font-heading text-[#F9F7F2] text-3xl font-bold leading-none mt-1">
+                      RADIATA
+                    </h4>
                   </div>
                 </div>
                 <div className="px-5 py-4 border-t border-[#A67C52]/15">
-                  <p className="text-sm text-[#F9F7F2]/62 leading-relaxed">
+                  <p className="text-[14px] text-[#F9F7F2]/62 leading-relaxed">
                     Versátil y funcional para construcción, carpintería y soluciones a medida.
                   </p>
                 </div>
@@ -130,16 +135,20 @@ export default function QuoteEngine() {
                   <img
                     src={ABOUT_OREGON_IMG}
                     alt="Pino Oregón"
-                    className="w-full h-full object-cover brightness-[0.74] contrast-[1.03] transition-transform duration-700 group-hover:scale-[1.03]"
+                    className="w-full h-full object-cover brightness-[0.72] contrast-[1.03] transition-transform duration-700 group-hover:scale-[1.03]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#181412]/92 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#181412]/95 via-[#181412]/10 to-transparent" />
                   <div className="absolute left-5 right-5 bottom-5">
-                    <span className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#D1A169]">Pino</span>
-                    <h4 className="font-heading text-[#F9F7F2] text-3xl font-bold leading-none mt-1">OREGÓN</h4>
+                    <span className="font-mono-tech text-[10px] uppercase tracking-[0.2em] text-[#D1A169]">
+                      Pino
+                    </span>
+                    <h4 className="font-heading text-[#F9F7F2] text-3xl font-bold leading-none mt-1">
+                      OREGÓN
+                    </h4>
                   </div>
                 </div>
                 <div className="px-5 py-4 border-t border-[#A67C52]/15">
-                  <p className="text-sm text-[#F9F7F2]/62 leading-relaxed">
+                  <p className="text-[14px] text-[#F9F7F2]/62 leading-relaxed">
                     Firme, resistente y con una terminación cálida para proyectos de mayor presencia.
                   </p>
                 </div>
