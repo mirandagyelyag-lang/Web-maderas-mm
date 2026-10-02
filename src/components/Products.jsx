@@ -86,39 +86,52 @@ export default function Products() {
             </div>
           </div>
           <div
-            className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden cursor-ew-resize select-none"
+            className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden cursor-ew-resize select-none touch-none"
             onMouseMove={(e) => {
+              if (e.buttons !== 1) return;
               const rect = e.currentTarget.getBoundingClientRect();
               const pos = ((e.clientX - rect.left) / rect.width) * 100;
-              setSliderPos(Math.max(0, Math.min(100, pos)));
+              setSliderPos(Math.max(2, Math.min(98, pos)));
+            }}
+            onMouseDown={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              const pos = ((e.clientX - rect.left) / rect.width) * 100;
+              setSliderPos(Math.max(2, Math.min(98, pos)));
             }}
             onTouchMove={(e) => {
               const rect = e.currentTarget.getBoundingClientRect();
               const pos = ((e.touches[0].clientX - rect.left) / rect.width) * 100;
-              setSliderPos(Math.max(0, Math.min(100, pos)));
+              setSliderPos(Math.max(2, Math.min(98, pos)));
             }}
           >
-            <img src={CEPILLADO_IMG} alt="Pino Cepillado" className="absolute inset-0 w-full h-full object-cover" />
-            <div className="absolute inset-0 overflow-hidden" style={{ width: `${sliderPos}%` }}>
-              <img
-                src={BRUTO_IMG}
-                alt="Pino Bruto"
-                className="absolute inset-0 h-full object-cover"
-                style={{ width: `${100 / (sliderPos / 100)}%`, maxWidth: "none" }}
-              />
-            </div>
+            {/* Base: cepillado ocupa todo el comparador */}
+            <img
+              src={CEPILLADO_IMG}
+              alt="Textura de pino cepillado"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+
+            {/* Bruto ocupa exactamente la misma caja y se recorta según la barra */}
+            <img
+              src={BRUTO_IMG}
+              alt="Textura de pino bruto"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
+            />
+
             <div
-              className="absolute top-0 bottom-0 w-1 bg-[#A67C52] pointer-events-none"
-              style={{ left: `${sliderPos}%` }}
+              className="absolute top-0 bottom-0 w-[3px] bg-[#A67C52] pointer-events-none z-20"
+              style={{ left: `calc(${sliderPos}% - 1.5px)` }}
             >
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[#A67C52] flex items-center justify-center">
-                <MoveHorizontal size={20} className="text-[#F9F7F2]" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-[#A67C52] flex items-center justify-center shadow-lg">
+                <MoveHorizontal size={21} className="text-[#F9F7F2]" />
               </div>
             </div>
-            <span className="absolute top-4 left-4 font-mono-tech text-xs uppercase tracking-widest text-[#F9F7F2] bg-[#1F1B18]/60 px-3 py-1">
+
+            <span className="absolute top-4 left-4 z-30 font-mono-tech text-xs uppercase tracking-widest text-[#F9F7F2] bg-[#1F1B18]/70 px-3 py-1.5">
               Bruto
             </span>
-            <span className="absolute top-4 right-4 font-mono-tech text-xs uppercase tracking-widest text-[#F9F7F2] bg-[#1F1B18]/60 px-3 py-1">
+            <span className="absolute top-4 right-4 z-30 font-mono-tech text-xs uppercase tracking-widest text-[#F9F7F2] bg-[#1F1B18]/70 px-3 py-1.5">
               Cepillado
             </span>
           </div>
