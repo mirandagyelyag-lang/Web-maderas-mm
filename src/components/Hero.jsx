@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowDown } from "lucide-react";
 
-const HERO_IMG = "/assets/hero.svg";
+const HERO_IMG = "/assets/hero-realista.png";
 
 export default function Hero() {
   return (
