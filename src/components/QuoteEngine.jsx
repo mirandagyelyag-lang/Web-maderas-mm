@@ -9,7 +9,7 @@ const materiales = [
   "Pino Bruto",
   "Pino Cepillado",
   "Pino Dimensionado",
-  "Vigas a Medida",
+  "Pilares y Vigas a Medida",
   "Pino con Canto Natural",
   "Rejas Trillage",
 ];
