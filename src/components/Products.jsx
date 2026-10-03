@@ -47,16 +47,16 @@ const products = [
     dimensiones: ["Distintos largos", "Distintas secciones", "Cortes a medida"],
   },
   {
-    tipo: "Largos",
-    nombre: "Piezas Largas de Pino",
-    descripcion: "Piezas largas de pino para proyectos que requieren continuidad y buena terminación. Disponibilidad según medida y pedido.",
+    tipo: "Vigas",
+    nombre: "Vigas a Medida",
+    descripcion: "Vigas de pino preparadas según requerimiento, disponibles en largos de 4, 5, 6, 7 y 8 metros. Consulta sección y disponibilidad según pedido.",
     img: LARGOS_IMG,
     specs: [
       { label: "Material", value: "Pino" },
-      { label: "Formato", value: "Largo" },
+      { label: "Formato", value: "Viga" },
       { label: "Pedido", value: "A medida" },
     ],
-    dimensiones: ["Largos especiales", "Consultar sección", "Cortes a medida"],
+    dimensiones: ["4 m", "5 m", "6 m", "7 m", "8 m"],
   },
   {
     tipo: "Rústico",
