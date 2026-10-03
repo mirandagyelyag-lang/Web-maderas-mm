@@ -4,6 +4,9 @@ import { MoveHorizontal } from "lucide-react";
 const BRUTO_IMG = "/assets/textura_de_madera_astillada_con_nudo.png";
 const CEPILLADO_IMG = "/assets/comparador-cepillado-final.webp";
 const TRILLAGE_IMG = "/assets/trillage-profesional-fixed.webp";
+const DIMENSIONADO_IMG = "/assets/catalogo/nuevo-producto-1.webp";
+const LARGOS_IMG = "/assets/catalogo/nuevo-producto-2.webp";
+const CANTO_NATURAL_IMG = "/assets/catalogo/nuevo-producto-3.webp";
 
 const products = [
   {
@@ -29,6 +32,42 @@ const products = [
       { label: "Uso", value: "Decorativo" },
     ],
     dimensiones: ["1x4\", 1x6\", 1x8\"", "2x4\", 2x6\"", "Perfiles especiales"],
+  },
+  {
+    tipo: "Dimensionado",
+    nombre: "Pino Dimensionado",
+    descripcion: "Piezas de pino preparadas para distintos proyectos y trabajos a medida. Consulta las medidas disponibles directamente con nosotros.",
+    img: DIMENSIONADO_IMG,
+    specs: [
+      { label: "Material", value: "Pino" },
+      { label: "Formato", value: "Pieza" },
+      { label: "Medidas", value: "Consultar" },
+    ],
+    dimensiones: ["Distintos largos", "Distintas secciones", "Cortes a medida"],
+  },
+  {
+    tipo: "Largos",
+    nombre: "Piezas Largas de Pino",
+    descripcion: "Piezas largas de pino para proyectos que requieren continuidad y buena terminación. Disponibilidad según medida y pedido.",
+    img: LARGOS_IMG,
+    specs: [
+      { label: "Material", value: "Pino" },
+      { label: "Formato", value: "Largo" },
+      { label: "Pedido", value: "A medida" },
+    ],
+    dimensiones: ["Largos especiales", "Consultar sección", "Cortes a medida"],
+  },
+  {
+    tipo: "Rústico",
+    nombre: "Pino con Canto Natural",
+    descripcion: "Madera con una apariencia más natural y rústica, conservando parte de su borde original. Consulta piezas disponibles.",
+    img: CANTO_NATURAL_IMG,
+    specs: [
+      { label: "Material", value: "Pino" },
+      { label: "Acabado", value: "Natural" },
+      { label: "Stock", value: "Consultar" },
+    ],
+    dimensiones: ["Según pieza", "Distintos largos", "Consultar disponibilidad"],
   },
   {
     tipo: "Tralix",
