@@ -25,6 +25,8 @@ export default function AdminConversations() {
   const [session, setSession] = useState(null);
   const [email, setEmail] = useState(ADMIN_EMAIL);
   const [sent, setSent] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [verifying, setVerifying] = useState(false);
   const [loadingAuth, setLoadingAuth] = useState(true);
   const [loadingData, setLoadingData] = useState(false);
   const [conversations, setConversations] = useState([]);
@@ -163,7 +165,7 @@ export default function AdminConversations() {
     const { error: authError } = await supabase.auth.signInWithOtp({
       email: email.trim(),
       options: {
-        emailRedirectTo: `${window.location.origin}/admin`,
+        shouldCreateUser: true,
       },
     });
 
@@ -173,6 +175,33 @@ export default function AdminConversations() {
     }
 
     setSent(true);
+  };
+
+  const verifyCode = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    const cleanOtp = otp.replace(/\D/g, "").slice(0, 6);
+    if (cleanOtp.length !== 6) {
+      setError("Escribe el código de 6 dígitos.");
+      return;
+    }
+
+    setVerifying(true);
+
+    const { error: verifyError } = await supabase.auth.verifyOtp({
+      email: email.trim(),
+      token: cleanOtp,
+      type: "email",
+    });
+
+    if (verifyError) {
+      setError("El código no es válido o ya venció.");
+      setVerifying(false);
+      return;
+    }
+
+    setVerifying(false);
   };
 
   const signOut = async () => {
@@ -209,26 +238,58 @@ export default function AdminConversations() {
             Entra con el correo autorizado. Te enviaremos un enlace seguro.
           </p>
 
-          <form onSubmit={sendMagicLink} className="mt-7 space-y-3">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-[#171411] border border-[#A67C52]/30 px-4 py-3 text-sm outline-none focus:border-[#A67C52]"
-              placeholder="tu@email.com"
-            />
-            <button
-              type="submit"
-              className="w-full bg-[#B88655] hover:bg-[#9C7048] transition-colors px-4 py-3.5 font-heading font-semibold text-sm"
-            >
-              ENVIAR ENLACE DE ACCESO
-            </button>
-          </form>
+          {!sent ? (
+            <form onSubmit={sendMagicLink} className="mt-7 space-y-3">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full bg-[#171411] border border-[#A67C52]/30 px-4 py-3 text-sm outline-none focus:border-[#A67C52]"
+                placeholder="tu@email.com"
+              />
+              <button
+                type="submit"
+                className="w-full bg-[#B88655] hover:bg-[#9C7048] transition-colors px-4 py-3.5 font-heading font-semibold text-sm"
+              >
+                ENVIAR CÓDIGO
+              </button>
+            </form>
+          ) : (
+            <form onSubmit={verifyCode} className="mt-7 space-y-3">
+              <p className="text-sm text-[#D9C2A6]">
+                Revisa tu correo y escribe aquí el código de 6 dígitos.
+              </p>
 
-          {sent && (
-            <p className="mt-4 text-sm text-[#D9C2A6]">
-              Revisa tu correo. El enlace te traerá de vuelta a este panel.
-            </p>
+              <input
+                inputMode="numeric"
+                autoComplete="one-time-code"
+                maxLength={6}
+                value={otp}
+                onChange={(e) => setOtp(e.target.value.replace(/\D/g, "").slice(0, 6))}
+                className="w-full bg-[#171411] border border-[#A67C52]/30 px-4 py-4 text-center text-2xl tracking-[0.35em] font-semibold outline-none focus:border-[#A67C52]"
+                placeholder="000000"
+              />
+
+              <button
+                type="submit"
+                disabled={verifying}
+                className="w-full bg-[#B88655] hover:bg-[#9C7048] disabled:opacity-50 transition-colors px-4 py-3.5 font-heading font-semibold text-sm"
+              >
+                {verifying ? "VERIFICANDO..." : "ENTRAR"}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setSent(false);
+                  setOtp("");
+                  setError("");
+                }}
+                className="w-full border border-[#A67C52]/25 px-4 py-3 text-xs text-[#F9F7F2]/60 hover:text-white hover:border-[#A67C52] transition-colors"
+              >
+                USAR OTRO CORREO
+              </button>
+            </form>
           )}
 
           {error && <p className="mt-4 text-sm text-red-300">{error}</p>}
