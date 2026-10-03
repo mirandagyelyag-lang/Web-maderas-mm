@@ -5,7 +5,14 @@ const ABOUT_RADIATA_IMG = "/assets/about-radiata.png";
 const ABOUT_OREGON_IMG = "/assets/about-oregon.png";
 const ABOUT_REALISTA_IMG = "/assets/about-realista.png";
 
-const materiales = ["Pino Bruto", "Pino Cepillado", "Rejas Trillage"];
+const materiales = [
+  "Pino Bruto",
+  "Pino Cepillado",
+  "Pino Dimensionado",
+  "Piezas Largas de Pino",
+  "Pino con Canto Natural",
+  "Rejas Trillage",
+];
 const especies = ["Pino Radiata · stock permanente", "Pino Oregón · a pedido", "Álamo · a pedido", "Otra especie · consultar"];
 const usos = ["Construcción", "Revestimiento", "Cierre perimetral", "Mueble / Carpintería", "Otro / No estoy segura"];
 const acabados = ["Aserrado (Bruto)", "Cepillado C4C", "Cortes a medida", "No estoy segura"];
@@ -29,7 +36,7 @@ export default function QuoteEngine() {
       key: "material",
       eyebrow: "Empecemos por lo principal",
       title: "¿Qué necesitas cotizar?",
-      subtitle: "Elige la opción que más se acerque a lo que buscas.",
+      subtitle: "Elige el producto o formato que más se acerque a lo que buscas.",
       options: materiales,
     },
     ...(!isTrillage
