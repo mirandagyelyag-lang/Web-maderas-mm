@@ -78,8 +78,28 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       console.error("OpenAI API error:", data);
+
+      const providerCode = data?.error?.code || null;
+      const providerType = data?.error?.type || null;
+
+      let publicError = "No pude generar una respuesta en este momento.";
+
+      if (providerCode === "insufficient_quota") {
+        publicError = "La cuenta de OpenAI API no tiene saldo disponible.";
+      } else if (
+        providerCode === "invalid_api_key" ||
+        providerType === "invalid_request_error" && response.status === 401
+      ) {
+        publicError = "La clave de OpenAI configurada no es válida.";
+      } else if (response.status === 429) {
+        publicError = "El asistente alcanzó temporalmente el límite de uso.";
+      }
+
       return res.status(502).json({
-        error: "No pude generar una respuesta en este momento.",
+        error: publicError,
+        providerCode,
+        providerType,
+        providerStatus: response.status,
       });
     }
 
