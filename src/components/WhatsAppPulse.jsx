@@ -25,6 +25,7 @@ export default function WhatsAppPulse() {
 
   const endRef = useRef(null);
   const fileRef = useRef(null);
+  const sessionIdRef = useRef(crypto.randomUUID());
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -73,6 +74,7 @@ export default function WhatsAppPulse() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          sessionId: sessionIdRef.current,
           message: userContent,
           image: currentImage
             ? {
@@ -161,6 +163,9 @@ export default function WhatsAppPulse() {
                   </div>
                   <p className="text-[11px] text-[#F9F7F2]/55 mt-0.5">
                     Te ayudo a elegir y entender nuestros productos
+                  </p>
+                  <p className="text-[9px] text-[#F9F7F2]/35 mt-1">
+                    La conversación puede guardarse para atención y seguimiento.
                   </p>
                 </div>
               </div>
