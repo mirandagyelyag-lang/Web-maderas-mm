@@ -4,9 +4,9 @@ import { MoveHorizontal } from "lucide-react";
 const BRUTO_IMG = "/assets/textura_de_madera_astillada_con_nudo.png";
 const CEPILLADO_IMG = "/assets/comparador-cepillado-final.webp";
 const TRILLAGE_IMG = "/assets/trillage-profesional-fixed.webp";
-const DIMENSIONADO_IMG = "/assets/catalogo/nuevo-producto-1.webp";
-const LARGOS_IMG = "/assets/catalogo/nuevo-producto-2.webp";
-const CANTO_NATURAL_IMG = "/assets/catalogo/nuevo-producto-3.webp";
+const DIMENSIONADO_IMG = "/assets/viga.png";
+const LARGOS_IMG = "/assets/viga-2.png";
+const CANTO_NATURAL_IMG = "/assets/canto-natural.png";
 
 const products = [
   {
