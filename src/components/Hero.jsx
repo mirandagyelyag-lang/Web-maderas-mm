@@ -26,7 +26,7 @@ export default function Hero() {
           <div className="col-span-12 lg:col-span-8">
             <div className="flex items-center gap-4 mb-6">
               <span className="font-mono-tech text-xs text-[#A67C52] uppercase tracking-[0.3em]">
-                Est. Chile · Madera de Pino
+                Est. Chile · Maderas a medida
               </span>
               <span className="h-px w-16 bg-[#A67C52]/60" />
             </div>
@@ -36,8 +36,8 @@ export default function Hero() {
               <span className="text-[#A67C52]">MADERA</span>
             </h1>
             <p className="mt-8 text-[#F9F7F2]/70 text-lg md:text-xl max-w-xl leading-relaxed">
-              Especialistas en madera de pino cepillada y en bruto. Calidad de aserradero chileno,
-              cortes a medida y entrega directa a tu obra.
+              Pino Radiata con stock permanente y otras especies, como Pino Oregón y Álamo,
+              trabajadas a pedido. Madera en bruto, cepillada y cortes a medida.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <a
@@ -61,7 +61,7 @@ export default function Hero() {
                 Especies
               </span>
               <span className="font-heading text-[#F9F7F2] text-2xl font-semibold block mt-1">
-                Pino Radiata · Pino Oregón
+                Radiata · Oregón · Álamo
               </span>
             </div>
             <div className="border-l-2 border-[#A67C52]/50 pl-5 text-right">
