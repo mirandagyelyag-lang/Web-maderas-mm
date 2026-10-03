@@ -47,16 +47,16 @@ const products = [
     dimensiones: ["2,20 m", "2,50 m", "Consultar otras medidas"],
   },
   {
-    tipo: "Vigas",
-    nombre: "Vigas a Medida",
-    descripcion: "Vigas de pino preparadas según requerimiento, disponibles en largos de 4, 5, 6, 7 y 8 metros. Consulta sección y disponibilidad según pedido.",
+    tipo: "Pilares / Vigas",
+    nombre: "Pilares y Vigas a Medida",
+    descripcion: "Pilares y vigas de pino preparados según requerimiento, disponibles en secciones 2x2\" y 2x3\", y en largos de 4, 5, 6, 7 y 8 metros. Consulta disponibilidad según pedido.",
     img: LARGOS_IMG,
     specs: [
       { label: "Material", value: "Pino" },
-      { label: "Formato", value: "Viga" },
+      { label: "Formato", value: "Pilar / Viga" },
       { label: "Pedido", value: "A medida" },
     ],
-    dimensiones: ["4 m", "5 m", "6 m", "7 m", "8 m"],
+    dimensiones: ["2x2\"", "2x3\"", "4–8 m"],
   },
   {
     tipo: "Rústico",
