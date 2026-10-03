@@ -120,7 +120,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 sm:mt-14 pt-6 border-t border-[#A67C52]/18">
+        <div className="mt-10 sm:mt-14 pt-6 border-t border-[#A67C52]/60">
           <p className="font-heading text-[#F9F7F2]/35 text-xs sm:text-sm text-center sm:text-left">
             © {new Date().getFullYear()} Maderas M&M · Forjamos el futuro en madera
           </p>
