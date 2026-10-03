@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { MessageCircle, Bot, Sparkles, X, Send, Loader2, ExternalLink } from "lucide-react";
+import { MessageCircle, Bot, Sparkles, X, Send, Loader2, ExternalLink, ImagePlus } from "lucide-react";
 
 const phoneRaw = "56953488200";
 
@@ -13,6 +13,8 @@ export default function WhatsAppPulse() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
+  const [image, setImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState("");
   const [messages, setMessages] = useState([
     {
       role: "assistant",
@@ -22,26 +24,62 @@ export default function WhatsAppPulse() {
   ]);
 
   const endRef = useRef(null);
+  const fileRef = useRef(null);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, sending]);
 
+  const fileToBase64 = (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result).split(",")[1] || "");
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+
+  const handleImage = (file) => {
+    if (!file) return;
+    if (!file.type.startsWith("image/")) return;
+    if (file.size > 4 * 1024 * 1024) {
+      alert("La foto debe pesar menos de 4 MB.");
+      return;
+    }
+    setImage(file);
+    setImagePreview(URL.createObjectURL(file));
+  };
+
+  const clearImage = () => {
+    if (imagePreview) URL.revokeObjectURL(imagePreview);
+    setImage(null);
+    setImagePreview("");
+    if (fileRef.current) fileRef.current.value = "";
+  };
+
   const sendMessage = async (text = input) => {
     const clean = text.trim();
-    if (!clean || sending) return;
+    if ((!clean && !image) || sending) return;
 
-    const nextMessages = [...messages, { role: "user", content: clean }];
+    const userContent = clean || "¿Esto lo hacen ustedes?";
+    const nextMessages = [...messages, { role: "user", content: userContent, image: imagePreview || null }];
     setMessages(nextMessages);
     setInput("");
     setSending(true);
+
+    const currentImage = image;
 
     try {
       const response = await fetch("https://vwyudrmxatuukcbncats.supabase.co/functions/v1/maderas-assistant", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          message: clean,
+          message: userContent,
+          image: currentImage
+            ? {
+                mimeType: currentImage.type,
+                data: await fileToBase64(currentImage),
+              }
+            : null,
         }),
       });
 
@@ -55,6 +93,7 @@ export default function WhatsAppPulse() {
         ...prev,
         { role: "assistant", content: data.reply },
       ]);
+      clearImage();
     } catch (error) {
       setMessages((prev) => [
         ...prev,
@@ -147,6 +186,13 @@ export default function WhatsAppPulse() {
                         : "bg-[#FFFDFC] border border-[#A67C52]/18 text-[#2C2926] rounded-[18px] rounded-bl-[5px]"
                     }`}
                   >
+                    {message.image && (
+                      <img
+                        src={message.image}
+                        alt="Foto enviada por el cliente"
+                        className="mb-2 max-h-48 w-full rounded-xl object-cover"
+                      />
+                    )}
                     {message.content}
                   </div>
                 </div>
@@ -210,8 +256,47 @@ export default function WhatsAppPulse() {
                 e.preventDefault();
                 sendMessage();
               }}
-              className="border-t border-[#A67C52]/22 bg-[#FFFDFC] p-3 sm:p-4 flex items-end gap-2 shrink-0"
+              className="border-t border-[#A67C52]/22 bg-[#FFFDFC] p-3 sm:p-4 shrink-0"
             >
+              {imagePreview && (
+                <div className="mb-3 flex items-center gap-3 rounded-xl border border-[#A67C52]/25 bg-[#F7F1E8] p-2.5">
+                  <img
+                    src={imagePreview}
+                    alt="Vista previa"
+                    className="h-16 w-16 rounded-lg object-cover"
+                  />
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs font-semibold text-[#2C2926]">Foto lista para enviar</p>
+                    <p className="text-[11px] text-[#2C2926]/55">La IA solo confirmará si Maderas M&M hace algo así.</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={clearImage}
+                    className="rounded-full p-1.5 text-[#2C2926]/50 hover:bg-[#A67C52]/10 hover:text-[#A67C52]"
+                    aria-label="Quitar foto"
+                  >
+                    <X size={16} />
+                  </button>
+                </div>
+              )}
+
+              <div className="flex items-end gap-2">
+                <input
+                  ref={fileRef}
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => handleImage(e.target.files?.[0])}
+                />
+                <button
+                  type="button"
+                  onClick={() => fileRef.current?.click()}
+                  className="w-11 h-11 shrink-0 rounded-xl flex items-center justify-center border border-[#A67C52]/25 bg-[#F7F1E8] text-[#A67C52] hover:bg-[#EFE4D7] transition-colors"
+                  aria-label="Agregar foto"
+                  title="Agregar foto"
+                >
+                  <ImagePlus size={19} />
+                </button>
               <textarea
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -225,14 +310,15 @@ export default function WhatsAppPulse() {
                 placeholder="Escribe tu pregunta..."
                 className="flex-1 max-h-28 resize-none rounded-xl bg-[#F7F1E8] border border-[#A67C52]/25 px-4 py-3 text-sm text-[#1F1B18] placeholder:text-[#3E424B]/40 focus:outline-none focus:border-[#A67C52] focus:ring-2 focus:ring-[#A67C52]/10"
               />
-              <button
-                type="submit"
-                disabled={!input.trim() || sending}
-                className="w-11 h-11 shrink-0 rounded-xl flex items-center justify-center bg-[#A67C52] text-white shadow-sm shadow-[#A67C52]/25 disabled:opacity-35 hover:bg-[#8B693A] transition-colors"
-                aria-label="Enviar pregunta"
-              >
-                {sending ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
-              </button>
+                <button
+                  type="submit"
+                  disabled={(!input.trim() && !image) || sending}
+                  className="w-11 h-11 shrink-0 rounded-xl flex items-center justify-center bg-[#A67C52] text-white shadow-sm shadow-[#A67C52]/25 disabled:opacity-35 hover:bg-[#8B693A] transition-colors"
+                  aria-label="Enviar pregunta"
+                >
+                  {sending ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
+                </button>
+              </div>
             </form>
           </div>
         </div>
