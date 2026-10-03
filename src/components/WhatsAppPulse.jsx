@@ -37,11 +37,11 @@ export default function WhatsAppPulse() {
     setSending(true);
 
     try {
-      const response = await fetch("/api/maderas-assistant", {
+      const response = await fetch("/api/asistente", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          messages: nextMessages.map(({ role, content }) => ({ role, content })),
+          message: clean,
         }),
       });
 
