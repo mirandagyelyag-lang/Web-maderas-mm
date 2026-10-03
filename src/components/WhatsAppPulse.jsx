@@ -107,16 +107,23 @@ export default function WhatsAppPulse() {
 
       {open && (
         <div className="fixed inset-0 z-[70] flex items-end sm:items-center justify-center bg-black/55 backdrop-blur-sm sm:px-5">
-          <div className="w-full sm:max-w-md h-[82vh] sm:h-[680px] sm:max-h-[86vh] bg-[#F9F7F2] border border-[#A67C52]/25 shadow-2xl flex flex-col">
-            <div className="bg-[#1F1B18] text-[#F9F7F2] px-5 py-4 flex items-center justify-between border-b border-[#A67C52]/20 shrink-0">
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#A67C52]" />
-                  <p className="font-heading font-bold text-sm">Asistente M&M</p>
+          <div className="w-full sm:max-w-[520px] h-[78vh] sm:h-auto sm:max-h-[78vh] bg-[#F7F1E8] border border-[#A67C52]/35 shadow-2xl flex flex-col rounded-t-[24px] sm:rounded-[24px] overflow-hidden">
+            <div className="bg-[#1F1B18] text-[#F9F7F2] px-5 py-4 flex items-center justify-between border-b border-[#A67C52]/35 shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#A67C52] text-white flex items-center justify-center shadow-md shadow-black/20">
+                  <Bot size={21} strokeWidth={1.8} />
                 </div>
-                <p className="text-[11px] text-[#F9F7F2]/55 mt-0.5">
-                  Pregunta lo que necesites sobre madera
-                </p>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <p className="font-heading font-bold text-[15px]">Asistente M&M</p>
+                    <span className="rounded-full border border-[#A67C52]/45 bg-[#A67C52]/10 px-2 py-0.5 font-mono-tech text-[8px] uppercase tracking-[0.16em] text-[#C99561]">
+                      IA
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-[#F9F7F2]/55 mt-0.5">
+                    Te ayudo a elegir y entender nuestros productos
+                  </p>
+                </div>
               </div>
               <button
                 onClick={() => setOpen(false)}
@@ -127,17 +134,17 @@ export default function WhatsAppPulse() {
               </button>
             </div>
 
-            <div className="flex-1 overflow-y-auto px-4 py-5 space-y-4">
+            <div className="flex-1 overflow-y-auto px-4 sm:px-5 py-4 space-y-4 min-h-0">
               {messages.map((message, index) => (
                 <div
                   key={index}
                   className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[86%] px-4 py-3 text-sm leading-relaxed ${
+                    className={`max-w-[88%] px-4 py-3 text-[14px] leading-6 shadow-sm ${
                       message.role === "user"
-                        ? "bg-[#A67C52] text-[#F9F7F2] rounded-2xl rounded-br-sm"
-                        : "bg-white border border-[#A67C52]/15 text-[#2C2926] rounded-2xl rounded-bl-sm"
+                        ? "bg-[#A67C52] text-[#F9F7F2] rounded-[18px] rounded-br-[5px]"
+                        : "bg-[#FFFDFC] border border-[#A67C52]/18 text-[#2C2926] rounded-[18px] rounded-bl-[5px]"
                     }`}
                   >
                     {message.content}
@@ -146,19 +153,29 @@ export default function WhatsAppPulse() {
               ))}
 
               {messages.length === 1 && (
-                <div className="pt-1 space-y-2">
-                  <p className="font-mono-tech text-[9px] uppercase tracking-[0.16em] text-[#A67C52]">
-                    Puedes preguntarme
-                  </p>
-                  {starterQuestions.map((question) => (
-                    <button
-                      key={question}
-                      onClick={() => sendMessage(question)}
-                      className="w-full text-left bg-[#F3ECE3] border border-[#A67C52]/18 px-4 py-3 text-sm text-[#3E424B] hover:border-[#A67C52] transition-colors"
-                    >
-                      {question}
-                    </button>
-                  ))}
+                <div className="pt-1">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Sparkles size={14} className="text-[#A67C52]" />
+                    <p className="font-mono-tech text-[9px] uppercase tracking-[0.16em] text-[#A67C52]">
+                      Preguntas rápidas
+                    </p>
+                  </div>
+                  <div className="grid gap-2">
+                    {starterQuestions.map((question) => (
+                      <button
+                        key={question}
+                        onClick={() => sendMessage(question)}
+                        className="group w-full text-left rounded-xl bg-[#EFE4D7] border border-[#A67C52]/22 px-4 py-3 text-[13px] leading-5 text-[#3E424B] hover:bg-[#E8DACB] hover:border-[#A67C52]/55 transition-all"
+                      >
+                        <span className="flex items-center justify-between gap-3">
+                          <span>{question}</span>
+                          <span className="text-[#A67C52] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
+                            →
+                          </span>
+                        </span>
+                      </button>
+                    ))}
+                  </div>
                 </div>
               )}
 
@@ -179,7 +196,7 @@ export default function WhatsAppPulse() {
                   href={whatsappSummary()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full border border-[#A67C52]/25 bg-white text-[#1F1B18] px-4 py-3 font-heading font-semibold text-xs hover:border-[#A67C52] transition-colors"
+                  className="flex items-center justify-center gap-2 w-full rounded-xl border border-[#A67C52]/30 bg-[#FFFDFC] text-[#1F1B18] px-4 py-3 font-heading font-semibold text-xs hover:border-[#A67C52] hover:bg-[#F5EEE6] transition-colors"
                 >
                   <MessageCircle size={16} className="text-[#A67C52]" />
                   CONTINUAR CON UNA PERSONA POR WHATSAPP
@@ -193,7 +210,7 @@ export default function WhatsAppPulse() {
                 e.preventDefault();
                 sendMessage();
               }}
-              className="border-t border-[#A67C52]/18 bg-white p-3 flex items-end gap-2 shrink-0"
+              className="border-t border-[#A67C52]/22 bg-[#FFFDFC] p-3 sm:p-4 flex items-end gap-2 shrink-0"
             >
               <textarea
                 value={input}
@@ -206,12 +223,12 @@ export default function WhatsAppPulse() {
                 }}
                 rows={1}
                 placeholder="Escribe tu pregunta..."
-                className="flex-1 max-h-28 resize-none bg-[#F9F7F2] border border-[#A67C52]/18 px-4 py-3 text-sm text-[#1F1B18] placeholder:text-[#3E424B]/40 focus:outline-none focus:border-[#A67C52]"
+                className="flex-1 max-h-28 resize-none rounded-xl bg-[#F7F1E8] border border-[#A67C52]/25 px-4 py-3 text-sm text-[#1F1B18] placeholder:text-[#3E424B]/40 focus:outline-none focus:border-[#A67C52] focus:ring-2 focus:ring-[#A67C52]/10"
               />
               <button
                 type="submit"
                 disabled={!input.trim() || sending}
-                className="w-11 h-11 shrink-0 flex items-center justify-center bg-[#A67C52] text-white disabled:opacity-35 hover:bg-[#8B693A] transition-colors"
+                className="w-11 h-11 shrink-0 rounded-xl flex items-center justify-center bg-[#A67C52] text-white shadow-sm shadow-[#A67C52]/25 disabled:opacity-35 hover:bg-[#8B693A] transition-colors"
                 aria-label="Enviar pregunta"
               >
                 {sending ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
