@@ -47,94 +47,75 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Contact panel */}
-          <div className="border border-[#A67C52]/22 bg-[#29241F]/70 backdrop-blur-sm">
-            <div className="divide-y divide-[#A67C52]/18">
-              {/* Email */}
-              <div className="p-5 sm:p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <Mail size={18} className="text-[#B88655] shrink-0" />
-                  <span className="font-mono-tech text-[10px] sm:text-xs uppercase tracking-[0.18em] text-[#A67C52]">
-                    Email
-                  </span>
-                </div>
-
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                  <a
-                    href={`mailto:${email}`}
-                    className="font-heading font-semibold text-[19px] sm:text-xl text-[#F9F7F2] hover:text-[#C99561] transition-colors break-all"
-                  >
-                    {email}
-                  </a>
-
-                  <button
-                    onClick={copyEmail}
-                    className="inline-flex items-center gap-2 self-start sm:self-auto font-mono-tech text-[10px] uppercase tracking-[0.14em] text-[#F9F7F2]/45 hover:text-[#C99561] transition-colors"
-                  >
-                    {copied ? <Check size={14} /> : <Copy size={14} />}
-                    {copied ? "Copiado" : "Copiar"}
-                  </button>
-                </div>
+          {/* Contact cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+            {/* Email */}
+            <div className="min-h-[290px] border border-[#A67C52]/28 bg-[#2A2929]/78 backdrop-blur-sm p-8 sm:p-10 flex flex-col justify-start">
+              <div className="flex items-center gap-4 mb-8">
+                <Mail size={34} strokeWidth={1.7} className="text-[#B88655] shrink-0" />
+                <span className="font-mono-tech text-[18px] sm:text-[20px] uppercase tracking-[0.14em] text-[#B88655]">
+                  Email
+                </span>
               </div>
 
-              {/* Phone */}
-              <div className="p-5 sm:p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <Phone size={18} className="text-[#B88655] shrink-0" />
-                  <span className="font-mono-tech text-[10px] sm:text-xs uppercase tracking-[0.18em] text-[#A67C52]">
-                    Teléfono
-                  </span>
-                </div>
+              <a
+                href={`mailto:${email}`}
+                className="font-heading font-semibold text-[28px] sm:text-[30px] lg:text-[32px] leading-tight text-[#F9F7F2] hover:text-[#C99561] transition-colors break-all"
+              >
+                {email}
+              </a>
 
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                  <a
-                    href={`tel:+${phoneRaw}`}
-                    className="font-heading font-semibold text-[24px] sm:text-2xl text-[#F9F7F2] hover:text-[#C99561] transition-colors"
-                  >
-                    {phone}
-                  </a>
-
-                  <a
-                    href={`https://wa.me/${phoneRaw}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 self-start sm:self-auto font-mono-tech text-[10px] uppercase tracking-[0.14em] text-[#F9F7F2]/45 hover:text-[#C99561] transition-colors"
-                  >
-                    <MessageCircle size={14} />
-                    WhatsApp
-                  </a>
-                </div>
-              </div>
-
-              {/* Service */}
-              <div className="p-5 sm:p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <MapPin size={18} className="text-[#B88655] shrink-0" />
-                  <span className="font-mono-tech text-[10px] sm:text-xs uppercase tracking-[0.18em] text-[#A67C52]">
-                    Despacho
-                  </span>
-                </div>
-
-                <p className="font-heading font-semibold text-lg text-[#F9F7F2]">
-                  Entrega directa a obra
-                </p>
-                <p className="text-[#F9F7F2]/52 text-sm leading-relaxed mt-1 max-w-xl">
-                  Consulta disponibilidad y cobertura según tu ubicación y volumen de compra.
-                </p>
-              </div>
+              <button
+                onClick={copyEmail}
+                className="mt-8 inline-flex items-center gap-3 self-start font-mono-tech text-[16px] uppercase tracking-[0.12em] text-[#F9F7F2]/55 hover:text-[#C99561] transition-colors"
+              >
+                {copied ? <Check size={22} /> : <Copy size={22} />}
+                {copied ? "Copiado" : "Copiar"}
+              </button>
             </div>
 
-            {/* Main CTA */}
-            <div className="p-5 sm:p-6 border-t border-[#A67C52]/18 bg-[#211C18]">
+            {/* Phone */}
+            <div className="min-h-[290px] border border-[#A67C52]/28 bg-[#2A2929]/78 backdrop-blur-sm p-8 sm:p-10 flex flex-col justify-start">
+              <div className="flex items-center gap-4 mb-8">
+                <Phone size={34} strokeWidth={1.7} className="text-[#B88655] shrink-0" />
+                <span className="font-mono-tech text-[18px] sm:text-[20px] uppercase tracking-[0.14em] text-[#B88655]">
+                  Teléfono
+                </span>
+              </div>
+
               <a
-                href={`https://wa.me/${phoneRaw}?text=Hola%20Maderas%20M%26M%2C%20me%20gustar%C3%ADa%20cotizar.`}
+                href={`tel:+${phoneRaw}`}
+                className="font-heading font-semibold text-[31px] sm:text-[34px] lg:text-[36px] leading-tight text-[#F9F7F2] hover:text-[#C99561] transition-colors"
+              >
+                {phone}
+              </a>
+
+              <a
+                href={`https://wa.me/${phoneRaw}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-full items-center justify-center gap-3 bg-[#B88655] text-[#F9F7F2] px-5 py-4 font-heading font-semibold text-sm sm:text-base tracking-[0.04em] hover:bg-[#9C7048] transition-colors"
+                className="mt-8 inline-flex items-center gap-3 self-start font-mono-tech text-[16px] uppercase tracking-[0.12em] text-[#F9F7F2]/55 hover:text-[#C99561] transition-colors"
               >
-                <MessageCircle size={18} />
-                COTIZAR POR WHATSAPP
+                <MessageCircle size={22} />
+                WhatsApp
               </a>
+            </div>
+
+            {/* Service */}
+            <div className="md:col-span-2 border border-[#A67C52]/28 bg-[#2A2929]/78 backdrop-blur-sm p-8 sm:p-10">
+              <div className="flex items-center gap-4 mb-7">
+                <MapPin size={34} strokeWidth={1.7} className="text-[#B88655] shrink-0" />
+                <span className="font-mono-tech text-[18px] sm:text-[20px] uppercase tracking-[0.14em] text-[#B88655]">
+                  Zona de servicio
+                </span>
+              </div>
+
+              <p className="font-heading font-semibold text-[28px] sm:text-[32px] lg:text-[34px] leading-tight text-[#F9F7F2]">
+                Región de Chile · Entrega a obra
+              </p>
+              <p className="text-[#F9F7F2]/55 text-[18px] sm:text-[20px] leading-relaxed mt-4 max-w-4xl">
+                Despacho directo desde aserradero. Consulta por cobertura en tu zona.
+              </p>
             </div>
           </div>
         </div>
