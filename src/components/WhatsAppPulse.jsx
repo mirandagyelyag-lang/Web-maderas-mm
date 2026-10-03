@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { MessageCircle, X, Send, Loader2, ExternalLink } from "lucide-react";
+import { MessageCircle, Bot, Sparkles, X, Send, Loader2, ExternalLink } from "lucide-react";
 
 const phoneRaw = "56953488200";
 
@@ -88,12 +88,20 @@ export default function WhatsAppPulse() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 z-40 group"
+        className="fixed bottom-6 right-6 z-40 group flex items-center gap-3"
         aria-label="Abrir asistente M&M"
       >
-        <span className="absolute inset-0 rounded-full bg-[#A67C52] animate-ping opacity-25" />
-        <span className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#A67C52] text-[#F9F7F2] shadow-lg shadow-[#A67C52]/40 hover:bg-[#8B693A] transition-colors">
-          <MessageCircle size={26} />
+        <span className="hidden sm:flex items-center gap-2 rounded-full border border-[#A67C52]/45 bg-[#211C18]/95 px-4 py-2.5 text-[#F9F7F2] shadow-lg shadow-black/20 backdrop-blur-sm transition-all group-hover:border-[#A67C52] group-hover:-translate-x-0.5">
+          <Sparkles size={15} className="text-[#C99561]" />
+          <span className="font-heading text-xs font-semibold tracking-[0.04em]">Asistente IA</span>
+        </span>
+
+        <span className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#A67C52] text-[#F9F7F2] shadow-lg shadow-[#A67C52]/35 transition-all group-hover:bg-[#8B693A] group-hover:scale-105">
+          <span className="absolute inset-0 rounded-full bg-[#A67C52] animate-ping opacity-20" />
+          <Bot size={27} strokeWidth={1.8} className="relative z-10" />
+          <span className="absolute -top-1 -right-1 z-20 min-w-[22px] h-[22px] px-1.5 rounded-full border-2 border-[#1F1B18] bg-[#F9F7F2] text-[#1F1B18] flex items-center justify-center font-heading text-[9px] font-bold tracking-tight">
+            IA
+          </span>
         </span>
       </button>
 
