@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MoveHorizontal } from "lucide-react";
 
 const BRUTO_IMG = "/assets/textura_de_madera_astillada_con_nudo.png";
-const CEPILLADO_IMG = "/pino-cepillado.png";
+const CEPILLADO_IMG = "/pino-cepillado.webp";
 const TRILLAGE_IMG = "/assets/trillage-profesional-fixed.webp";
 const DIMENSIONADO_IMG = "/assets/viga.png";
 const LARGOS_IMG = "/assets/viga-2.png";
