@@ -37,7 +37,7 @@ export default function Hero() {
             </h1>
             <p className="mt-8 text-[#F9F7F2]/70 text-lg md:text-xl max-w-xl leading-relaxed">
               Pino Radiata con stock permanente y otras especies, como Pino Oregón y Álamo,
-              trabajadas a pedido. Madera en bruto, cepillada y cortes a medida.
+              trabajadas a pedido. Madera bruta y elaborada, con cepillado, dimensionado y cortes a medida.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <a
