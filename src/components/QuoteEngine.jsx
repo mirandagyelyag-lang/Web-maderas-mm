@@ -6,6 +6,7 @@ const ABOUT_OREGON_IMG = "/assets/about-oregon.png";
 const ABOUT_REALISTA_IMG = "/assets/about-realista.png";
 
 const materiales = ["Pino Bruto", "Pino Cepillado", "Rejas Trillage"];
+const especies = ["Pino Radiata · stock permanente", "Pino Oregón · a pedido", "Álamo · a pedido", "Otra especie · consultar"];
 const usos = ["Construcción", "Revestimiento", "Cierre perimetral", "Mueble / Carpintería", "Otro / No estoy segura"];
 const acabados = ["Aserrado (Bruto)", "Cepillado C4C", "Cortes a medida", "No estoy segura"];
 const cantidades = ["Poca cantidad", "Cantidad mediana", "Gran cantidad", "No estoy segura"];
@@ -14,6 +15,7 @@ const despachos = ["Sí, necesito despacho", "No, retiro / coordino aparte", "Qu
 export default function QuoteEngine() {
   const [step, setStep] = useState(0);
   const [material, setMaterial] = useState("");
+  const [especie, setEspecie] = useState("");
   const [uso, setUso] = useState("");
   const [acabado, setAcabado] = useState("");
   const [cantidad, setCantidad] = useState("");
@@ -30,6 +32,15 @@ export default function QuoteEngine() {
       subtitle: "Elige la opción que más se acerque a lo que buscas.",
       options: materiales,
     },
+    ...(!isTrillage
+      ? [{
+          key: "especie",
+          eyebrow: "Especie de madera",
+          title: "¿Qué madera necesitas?",
+          subtitle: "Pino Radiata se mantiene en stock. Pino Oregón, Álamo y otras especies se trabajan a pedido.",
+          options: especies,
+        }]
+      : []),
     {
       key: "uso",
       eyebrow: "Cuéntanos un poco más",
@@ -63,13 +74,19 @@ export default function QuoteEngine() {
   ];
 
   const currentStep = steps[step];
-  const answers = { material, uso, acabado, cantidad, despacho };
+  const answers = { material, especie, uso, acabado, cantidad, despacho };
 
   const chooseOption = (key, value) => {
     if (key === "material") {
       setMaterial(value);
-      if (value === "Rejas Trillage") setAcabado("");
+      if (value === "Rejas Trillage") {
+        setEspecie("Pino Radiata · stock permanente");
+        setAcabado("");
+      } else {
+        setEspecie("");
+      }
     }
+    if (key === "especie") setEspecie(value);
     if (key === "uso") setUso(value);
     if (key === "acabado") setAcabado(value);
     if (key === "cantidad") setCantidad(value);
@@ -81,6 +98,7 @@ export default function QuoteEngine() {
   const resetQuote = () => {
     setStep(0);
     setMaterial("");
+    setEspecie("");
     setUso("");
     setAcabado("");
     setCantidad("");
@@ -94,6 +112,7 @@ export default function QuoteEngine() {
       "",
       "Quiero solicitar una cotización.",
       `• Producto: ${material}`,
+      especie ? `• Especie: ${especie}` : null,
       `• Uso: ${uso}`,
       !isTrillage && acabado ? `• Terminación: ${acabado}` : null,
       `• Cantidad aprox.: ${cantidad}`,
@@ -155,7 +174,7 @@ export default function QuoteEngine() {
 
             <div className="grid grid-cols-3 bg-[#171310] border-t border-[#A67C52]/25">
               {[
-                { num: "100%", label: "Pino chileno" },
+                { num: "Stock", label: "Radiata permanente" },
                 { num: "C4C", label: "Cepillado 4 caras" },
                 { num: "A medida", label: "Cortes especiales" },
               ].map((stat, index) => (
@@ -184,7 +203,7 @@ export default function QuoteEngine() {
                 Especies trabajadas
               </span>
               <h3 className="font-heading text-[#F9F7F2] text-2xl sm:text-3xl font-bold mt-2">
-                Dos pinos, dos caracteres
+                Radiata en stock. Otras especies a pedido.
               </h3>
             </div>
 
@@ -208,7 +227,7 @@ export default function QuoteEngine() {
                 </div>
                 <div className="px-5 py-4 border-t border-[#A67C52]/15">
                   <p className="text-[14px] text-[#F9F7F2]/60 leading-relaxed">
-                    Versátil y funcional para construcción, carpintería y soluciones a medida.
+                    Nuestra especie de stock permanente. Versátil y funcional para construcción, carpintería y soluciones a medida.
                   </p>
                 </div>
               </article>
@@ -232,10 +251,17 @@ export default function QuoteEngine() {
                 </div>
                 <div className="px-5 py-4 border-t border-[#A67C52]/15">
                   <p className="text-[14px] text-[#F9F7F2]/60 leading-relaxed">
-                    Firme, resistente y con una terminación cálida para proyectos de mayor presencia.
+                    Se trabaja a pedido según el requerimiento del proyecto. Firme, resistente y de terminación cálida.
                   </p>
                 </div>
               </article>
+            </div>
+
+            <div className="mt-4 border border-[#A67C52]/25 bg-[#181412] px-5 py-4 sm:px-6">
+              <p className="text-[14px] sm:text-[15px] text-[#F9F7F2]/70 leading-relaxed">
+                <strong className="text-[#D1A169]">También trabajamos Álamo y otras especies a pedido.</strong>{" "}
+                La disponibilidad, medidas y plazos se confirman según cada solicitud.
+              </p>
             </div>
           </div>
         </div>
@@ -348,6 +374,7 @@ export default function QuoteEngine() {
                   <div className="space-y-3">
                     {[
                       ["Producto", material],
+                      ...(especie ? [["Especie", especie]] : []),
                       ["Uso", uso],
                       ...(!isTrillage && acabado ? [["Terminación", acabado]] : []),
                       ["Cantidad", cantidad],
