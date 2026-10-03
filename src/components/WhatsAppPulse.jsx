@@ -37,7 +37,7 @@ export default function WhatsAppPulse() {
     setSending(true);
 
     try {
-      const response = await fetch("/api/asistente", {
+      const response = await fetch("https://vwyudrmxatuukcbncats.supabase.co/functions/v1/maderas-assistant", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
