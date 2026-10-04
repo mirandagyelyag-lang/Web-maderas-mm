@@ -281,7 +281,7 @@ export default function Products() {
         </div>
 
         {/* Catálogo */}
-        <div className="mb-10 md:mb-12">
+        <div id="nuestros-productos" className="mb-10 md:mb-12 scroll-mt-24">
           <div className="flex items-center gap-4 mb-4">
             <span className="font-mono-tech text-xs text-[#A67C52] uppercase tracking-[0.3em]">
               03 / Catálogo
