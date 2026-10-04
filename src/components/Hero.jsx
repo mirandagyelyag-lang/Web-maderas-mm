@@ -7,18 +7,13 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen w-full flex items-end overflow-hidden bg-[#1F1B18]"
+      className="relative min-h-screen w-full flex items-end overflow-hidden bg-[#1F1B18] bg-cover bg-center"
+      style={{ backgroundImage: `url(${HERO_IMG})` }}
     >
       <div className="absolute inset-0">
-        <img
-          src={HERO_IMG}
-          alt="Instalaciones de Maderas M&M"
-          className="w-full h-full object-cover brightness-[0.58] contrast-[0.95] saturate-[0.9]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#120f0d]/95 via-[#1a1512]/72 to-[#1f1b18]/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#120f0d]/80 via-[#120f0d]/18 to-[#1f1b18]/12" />
-        <div className="absolute inset-0 bg-black/18" />
-        <div className="absolute inset-0 grain-overlay opacity-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#120f0d]/92 via-[#120f0d]/48 to-[#120f0d]/12" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#120f0d]/86 via-[#120f0d]/24 to-transparent" />
+        <div className="absolute inset-0 grain-overlay opacity-[0.06]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 pb-20 pt-32 w-full">
