@@ -279,6 +279,28 @@ export default function Products() {
           </div>
         </div>
 
+        {/* Catálogo */}
+        <div className="mb-10 md:mb-12">
+          <div className="flex items-center gap-4 mb-4">
+            <span className="font-mono-tech text-xs text-[#A67C52] uppercase tracking-[0.3em]">
+              03 / Catálogo
+            </span>
+            <span className="h-px w-16 bg-[#A67C52]/60" />
+          </div>
+          <div className="grid grid-cols-12 gap-6">
+            <div className="col-span-12 lg:col-span-7">
+              <h2 className="font-heading font-bold text-[#1F1B18] text-4xl md:text-5xl lg:text-6xl leading-tight">
+                NUESTROS <span className="text-[#A67C52]">PRODUCTOS.</span>
+              </h2>
+            </div>
+            <div className="col-span-12 lg:col-span-5 flex items-end">
+              <p className="text-[#3E424B] text-base md:text-lg leading-relaxed">
+                Conoce nuestras maderas, terminaciones y productos para construcción, proyectos y espacios exteriores. Consulta disponibilidad y medidas especiales.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Product Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((p) => (
