@@ -18,8 +18,8 @@ export default function Hero() {
         />
 
         {/* Mobile: oscuridad más fuerte detrás del contenido para que la foto no compita con el texto */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#100d0b]/95 via-[#100d0b]/72 to-[#100d0b]/18 sm:from-[#120f0d]/92 sm:via-[#120f0d]/48 sm:to-[#120f0d]/12" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#100d0b]/88 via-[#120f0d]/28 to-[#120f0d]/12 sm:from-[#120f0d]/86 sm:via-[#120f0d]/24 sm:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f0c0a]/98 via-[#0f0c0a]/84 to-[#0f0c0a]/32 sm:from-[#120f0d]/92 sm:via-[#120f0d]/48 sm:to-[#120f0d]/12" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0c0a]/92 via-[#120f0d]/50 to-[#120f0d]/18 sm:from-[#120f0d]/86 sm:via-[#120f0d]/24 sm:to-transparent" />
         <div className="absolute inset-0 grain-overlay opacity-[0.05]" />
       </div>
 
@@ -33,13 +33,13 @@ export default function Hero() {
               <span className="h-px flex-1 max-w-14 sm:w-16 bg-[#A67C52]/60" />
             </div>
 
-            <h1 className="font-heading font-bold text-[#F9F7F2] text-[46px] min-[390px]:text-[52px] sm:text-6xl md:text-7xl lg:text-8xl leading-[0.92] tracking-[-0.035em] sm:tracking-tight text-balance max-w-[11ch] sm:max-w-none">
+            <h1 className="font-heading font-bold text-[#F9F7F2] drop-shadow-[0_3px_14px_rgba(0,0,0,0.55)] text-[46px] min-[390px]:text-[52px] sm:text-6xl md:text-7xl lg:text-8xl leading-[0.92] tracking-[-0.035em] sm:tracking-tight text-balance max-w-[11ch] sm:max-w-none">
               FORJAMOS EL<br />
               FUTURO EN<br />
               <span className="text-[#B98552]">MADERA</span>
             </h1>
 
-            <p className="mt-6 sm:mt-8 text-[#F9F7F2]/78 text-[15px] min-[390px]:text-base sm:text-lg md:text-xl max-w-[36rem] leading-[1.6] sm:leading-relaxed">
+            <p className="mt-6 sm:mt-8 text-[#F9F7F2]/95 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] text-[15px] min-[390px]:text-base sm:text-lg md:text-xl max-w-[36rem] leading-[1.7] sm:leading-relaxed">
               Pino Radiata con stock permanente y otras especies, como Pino Oregón y Álamo,
               trabajadas a pedido. Madera bruta y elaborada, con cepillado, dimensionado y cortes a medida.
             </p>
