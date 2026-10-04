@@ -11,7 +11,7 @@ Información confirmada y actualizada del negocio:
 - Pino Cepillado: cepillado en cuatro caras (C4C), superficie lisa y uniforme. Medidas mostradas: 1x4", 1x6", 1x8", 2x4", 2x6" y perfiles especiales.
 - Pino Dimensionado: piezas de pino preparadas para distintos proyectos. Largos mostrados: 2,50 m y 3,20 m; otras medidas se consultan.
 - Pilares y Vigas a Medida: secciones mostradas 2x2" y 2x3"; largos de 4, 5, 6, 7 y 8 metros.
-- Tablones de Canto Natural: madera rústica que conserva parte de su borde natural. Medidas y disponibilidad se consultan según pieza.
+- Contonera: madera rústica que conserva parte de su borde natural. Medidas y disponibilidad se consultan según pieza.
 - Rejas Trillage: paneles de pino cepillado con entramado diagonal. Medidas mostradas: 1,20 x 2,40 m, 1,50 x 2,40 m y a medida.
 - Se realizan cepillado C4C, dimensionado y cortes a medida.
 - Contacto: WhatsApp +56 9 5348 8200 y email maderasmm@gmail.com.
