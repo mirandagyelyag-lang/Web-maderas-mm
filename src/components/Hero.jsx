@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowDown } from "lucide-react";
 
-const HERO_IMG = "/assets/hero.svg";
+const HERO_IMG = "/assets/incio.png";
 
 export default function Hero() {
   return (
@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <img
           src={HERO_IMG}
-          alt="Stack de madera de pino"
+          alt="Instalaciones de Maderas M&M"
           className="w-full h-full object-cover brightness-[0.58] contrast-[0.95] saturate-[0.9]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#120f0d]/95 via-[#1a1512]/72 to-[#1f1b18]/35" />
