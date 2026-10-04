@@ -13,13 +13,13 @@ export default function Hero() {
         <img
           src={HERO_IMG}
           alt="Instalaciones de Maderas M&M"
-          className="h-full w-full object-cover object-[63%_center] sm:object-center brightness-[0.58] sm:brightness-[0.64] contrast-[1.02] saturate-[0.88]"
+          className="h-full w-full object-cover object-[63%_center] sm:object-center brightness-[0.46] sm:brightness-[0.64] contrast-[1.02] saturate-[0.86]"
           draggable="false"
         />
 
         {/* Mobile: oscuridad más fuerte detrás del contenido para que la foto no compita con el texto */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0f0c0a]/98 via-[#0f0c0a]/90 to-[#0f0c0a]/48 sm:from-[#120f0d]/92 sm:via-[#120f0d]/48 sm:to-[#120f0d]/12" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0c0a]/96 via-[#120f0d]/62 to-[#120f0d]/30 sm:from-[#120f0d]/86 sm:via-[#120f0d]/24 sm:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f0c0a]/98 via-[#0f0c0a]/94 to-[#0f0c0a]/62 sm:from-[#120f0d]/92 sm:via-[#120f0d]/48 sm:to-[#120f0d]/12" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0c0a]/98 via-[#120f0d]/72 to-[#120f0d]/42 sm:from-[#120f0d]/86 sm:via-[#120f0d]/24 sm:to-transparent" />
         <div className="absolute inset-0 grain-overlay opacity-[0.05]" />
       </div>
 
