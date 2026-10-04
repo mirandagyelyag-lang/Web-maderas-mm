@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowDown } from "lucide-react";
 
-const HERO_IMG = "/assets/inicio.webp";
+const HERO_IMG = "/assets/inicio-optimizado.webp";
 
 export default function Hero() {
   return (
