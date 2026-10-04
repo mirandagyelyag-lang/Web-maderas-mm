@@ -10,7 +10,7 @@ const materiales = [
   "Pino Cepillado",
   "Pino Dimensionado",
   "Pilares y Vigas a Medida",
-  "Contonera",
+  "Cantonera",
   "Rejas Trillage",
 ];
 const especies = ["Pino Radiata · stock permanente", "Pino Oregón · a pedido", "Álamo · a pedido", "Otra especie · consultar"];
