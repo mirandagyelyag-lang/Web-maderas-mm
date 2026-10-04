@@ -60,8 +60,8 @@ const products = [
   },
   {
     tipo: "Rústico",
-    nombre: "Tablones de Canto Natural",
-    descripcion: "Madera con una apariencia más natural y rústica, conservando parte de su borde original. Consulta piezas disponibles.",
+    nombre: "Contonera",
+    descripcion: "Madera de apariencia natural y rústica, conservando parte de su borde original. Consulta piezas disponibles.",
     img: CANTO_NATURAL_IMG,
     specs: [
       { label: "Material", value: "Pino" },
