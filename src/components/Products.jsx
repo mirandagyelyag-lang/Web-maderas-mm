@@ -80,7 +80,7 @@ const products = [
       { label: "Formato", value: "Panel" },
       { label: "Uso", value: "Perimetral" },
     ],
-    dimensiones: ["1.20 × 2.40 m", "1.50 × 2.40 m", "A medida"],
+    dimensiones: ["1 × 2 m", "Otras medidas a pedido"],
   },
 ];
 
