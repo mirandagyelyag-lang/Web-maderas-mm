@@ -311,11 +311,11 @@ export default function Products() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 sm:gap-7 lg:gap-8 items-stretch">
           {products.map((p) => (
             <div
               key={p.nombre}
-              className="group relative bg-white border border-[#A67C52]/20 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-[#A67C52]/70 hover:shadow-2xl hover:shadow-[#A67C52]/10 flex flex-col"
+              className="group relative bg-white border border-[#A67C52]/35 ring-1 ring-[#A67C52]/10 overflow-hidden shadow-[0_10px_28px_rgba(31,27,24,0.09)] transition-all duration-300 hover:-translate-y-1 hover:border-[#A67C52]/70 hover:shadow-2xl hover:shadow-[#A67C52]/15 flex flex-col"
             >
               <div className="relative overflow-hidden h-64 sm:h-72 bg-[#1F1B18]">
                 <img
