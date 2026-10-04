@@ -44,7 +44,7 @@ const products = [
       { label: "Formato", value: "Pieza" },
       { label: "Medidas", value: "Consultar" },
     ],
-    dimensiones: ["2,20 m", "2,50 m", "Consultar otras medidas"],
+    dimensiones: ["2,50 m", "3,20 m", "Consultar otras medidas"],
   },
   {
     tipo: "Pilares / Vigas",
