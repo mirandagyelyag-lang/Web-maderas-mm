@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MoveHorizontal } from "lucide-react";
 
 const BRUTO_IMG = "/assets/bruto-comparador.png";
+const PINO_BRUTO_IMG = "/assets/pino-bruto.png";
 const CEPILLADO_IMG = "/assets/pino-cepillado.png";
 const CEPILLADO_COMPARADOR_IMG = "/assets/cepillado-comparador.png";
 const TRILLAGE_IMG = "/assets/trillage-profesional-fixed.webp";
@@ -15,7 +16,7 @@ const products = [
     tipo: "Bruto",
     nombre: "Pino Bruto",
     descripcion: "Madera aserrada sin procesar. Textura natural, ideal para estructuras, construcción y aplicaciones donde el acabado superficial no es crítico.",
-    img: BRUTO_IMG,
+    img: PINO_BRUTO_IMG,
     specs: [
       { label: "Humedad", value: "≥ 30%" },
       { label: "Acabado", value: "Aserrado" },
