@@ -60,7 +60,7 @@ const products = [
   },
   {
     tipo: "Rústico",
-    nombre: "Contonera",
+    nombre: "Cantonera",
     descripcion: "Madera de apariencia natural y rústica, conservando parte de su borde original. Consulta piezas disponibles.",
     img: CANTO_NATURAL_IMG,
     specs: [
