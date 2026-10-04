@@ -304,18 +304,18 @@ export default function Products() {
         {/* Product Cards */}
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-y border-[#A67C52]/15 py-4">
           <span className="font-mono-tech text-[10px] sm:text-xs uppercase tracking-[0.18em] text-[#3E424B]/70">
-            ${products.length} productos disponibles
+            {products.length} productos disponibles
           </span>
           <span className="font-mono-tech text-[10px] sm:text-xs uppercase tracking-[0.14em] text-[#A67C52]">
             Medidas especiales a pedido
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 sm:gap-7 lg:gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 md:gap-y-9 md:gap-x-7 lg:gap-8 items-stretch">
           {products.map((p) => (
             <div
               key={p.nombre}
-              className="group relative bg-white border border-[#A67C52]/35 ring-1 ring-[#A67C52]/10 overflow-hidden shadow-[0_10px_28px_rgba(31,27,24,0.09)] transition-all duration-300 hover:-translate-y-1 hover:border-[#A67C52]/70 hover:shadow-2xl hover:shadow-[#A67C52]/15 flex flex-col"
+              className="group relative bg-white border-2 border-[#A67C52]/45 overflow-hidden shadow-[0_16px_36px_rgba(31,27,24,0.16)] transition-all duration-300 hover:-translate-y-1 hover:border-[#A67C52]/75 hover:shadow-2xl hover:shadow-[#A67C52]/20 flex flex-col after:absolute after:-bottom-7 after:left-1/2 after:h-px after:w-2/3 after:-translate-x-1/2 after:bg-[#A67C52]/35 after:content-[''] md:after:hidden"
             >
               <div className="relative overflow-hidden h-64 sm:h-72 bg-[#1F1B18]">
                 <img
