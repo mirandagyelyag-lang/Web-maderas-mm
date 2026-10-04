@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-[100svh] w-full flex items-end overflow-hidden bg-[#1F1B18]"
+      className="relative min-h-[100svh] w-full flex items-center sm:items-end overflow-hidden bg-[#1F1B18]"
     >
       <div className="absolute inset-0">
         <img
@@ -23,7 +23,7 @@ export default function Hero() {
         <div className="absolute inset-0 grain-overlay opacity-[0.05]" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 pb-14 sm:pb-20 pt-28 sm:pt-32">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 pt-20 pb-10 sm:pb-20 sm:pt-32">
         <div className="grid grid-cols-12 gap-6 items-end">
           <div className="col-span-12 lg:col-span-8">
             <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
