@@ -302,20 +302,27 @@ export default function Products() {
         </div>
 
         {/* Product Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-y border-[#A67C52]/15 py-4">
+          <span className="font-mono-tech text-[10px] sm:text-xs uppercase tracking-[0.18em] text-[#3E424B]/70">
+            ${products.length} productos disponibles
+          </span>
+          <span className="font-mono-tech text-[10px] sm:text-xs uppercase tracking-[0.14em] text-[#A67C52]">
+            Medidas especiales a pedido
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch">
           {products.map((p) => (
             <div
-              key={p.tipo}
-              className="group relative bg-white border border-[#A67C52]/20 overflow-hidden transition-all hover:border-[#A67C52] hover:shadow-2xl hover:shadow-[#A67C52]/10"
+              key={p.nombre}
+              className="group relative bg-white border border-[#A67C52]/20 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-[#A67C52]/70 hover:shadow-2xl hover:shadow-[#A67C52]/10 flex flex-col"
             >
-              <div className={`relative overflow-hidden ${p.tipo === "Tralix" ? "h-80 sm:h-96 bg-[#1F1B18]" : "h-72"}`}>
+              <div className="relative overflow-hidden h-64 sm:h-72 bg-[#1F1B18]">
                 <img
                   src={p.img}
                   alt={p.nombre}
-                  className={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${
-                    p.tipo === "Tralix"
-                      ? "object-cover object-[50%_52%]"
-                      : "object-cover"
+                  className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${
+                    p.tipo === "Tralix" ? "object-[50%_52%]" : "object-center"
                   }`}
                 />
 
@@ -333,10 +340,10 @@ export default function Products() {
                 </div>
               </div>
 
-              <div className="p-6">
-                <p className="text-[#3E424B] text-base leading-relaxed mb-6">{p.descripcion}</p>
+              <div className="p-5 sm:p-6 flex flex-1 flex-col">
+                <p className="text-[#3E424B] text-[15px] sm:text-base leading-relaxed mb-6">{p.descripcion}</p>
 
-                <div className="grid grid-cols-3 gap-2 mb-6 border-y border-[#A67C52]/15 py-4">
+                <div className="grid grid-cols-3 gap-2 mb-6 border-y border-[#A67C52]/15 py-4 min-h-[76px]">
                   {p.specs.map((s) => (
                     <div key={s.label}>
                       <span className="font-mono-tech text-[10px] uppercase tracking-widest text-[#A67C52] block">
@@ -349,7 +356,7 @@ export default function Products() {
                   ))}
                 </div>
 
-                <div className="mb-6">
+                <div className="mb-6 flex-1">
                   <span className="font-mono-tech text-[10px] uppercase tracking-widest text-[#3E424B] block mb-2">
                     Dimensiones estándar
                   </span>
@@ -367,7 +374,7 @@ export default function Products() {
 
                 <a
                   href="#cotizar"
-                  className="block w-full text-center bg-[#1F1B18] text-[#F9F7F2] py-3.5 font-heading font-semibold text-sm tracking-wide hover:bg-[#A67C52] transition-colors"
+                  className="block w-full text-center bg-[#1F1B18] text-[#F9F7F2] py-3.5 font-heading font-semibold text-xs sm:text-sm tracking-wide hover:bg-[#A67C52] transition-colors"
                 >
                   COTIZAR {p.nombre.toUpperCase()}
                 </a>
