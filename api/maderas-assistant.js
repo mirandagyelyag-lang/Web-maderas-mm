@@ -12,7 +12,7 @@ Información confirmada y actualizada del negocio:
 - Pino Dimensionado: piezas de pino preparadas para distintos proyectos. Largos mostrados: 2,50 m y 3,20 m; otras medidas se consultan.
 - Pilares y Vigas a Medida: secciones mostradas 2x2" y 2x3"; largos de 4, 5, 6, 7 y 8 metros.
 - Cantonera: madera rústica que conserva parte de su borde natural. Medidas y disponibilidad se consultan según pieza.
-- Rejas Trillage: paneles de pino cepillado con entramado diagonal. Medidas mostradas: 1,20 x 2,40 m, 1,50 x 2,40 m y a medida.
+- Rejas Trillage: paneles de pino cepillado con entramado diagonal. La única medida estándar es 1 x 2 m; cualquier otra medida se fabrica a pedido.
 - Se realizan cepillado C4C, dimensionado y cortes a medida.
 - Contacto: WhatsApp +56 9 5348 8200 y email maderasmm@gmail.com.
 - Precios, disponibilidad concreta, despacho y medidas especiales se confirman por WhatsApp.
