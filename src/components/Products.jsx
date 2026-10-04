@@ -8,7 +8,7 @@ const TRILLAGE_IMG = "/assets/trillage-profesional-fixed.webp";
 const DIMENSIONADO_IMG = "/assets/viga.png";
 const LARGOS_IMG = "/assets/viga-2.png";
 const CANTO_NATURAL_IMG = "/assets/canto-natural.png";
-const TABLONES_RUSTICOS_IMG = "/tablones-rústicos.png";
+const TABLONES_RUSTICOS_IMG = "/assets/tablones-rusticos.png";
 
 const products = [
   {
