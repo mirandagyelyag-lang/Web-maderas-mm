@@ -53,7 +53,7 @@ export default function Hero() {
               </a>
 
               <a
-                href="#productos"
+                href="#nuestros-productos"
                 className="border border-[#F9F7F2]/35 bg-[#120f0d]/18 backdrop-blur-[2px] text-[#F9F7F2] px-3 sm:px-8 py-3 sm:py-4 font-heading font-semibold text-[11px] min-[390px]:text-xs sm:text-base tracking-wide hover:border-[#A67C52] hover:text-[#A67C52] transition-colors text-center"
               >
                 VER PRODUCTOS
