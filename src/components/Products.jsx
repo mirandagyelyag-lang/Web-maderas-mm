@@ -8,6 +8,7 @@ const TRILLAGE_IMG = "/assets/trillage-profesional-fixed.webp";
 const DIMENSIONADO_IMG = "/assets/viga.png";
 const LARGOS_IMG = "/assets/viga-2.png";
 const CANTO_NATURAL_IMG = "/assets/canto-natural.png";
+const TABLONES_RUSTICOS_IMG = "/tablones-rústicos.png";
 
 const products = [
   {
@@ -69,6 +70,18 @@ const products = [
       { label: "Stock", value: "Consultar" },
     ],
     dimensiones: ["Según pieza", "Distintos largos", "Consultar disponibilidad"],
+  },
+  {
+    tipo: "Rústico",
+    nombre: "Tablones Rústicos",
+    descripcion: "Tablones de madera con forma, veta y borde natural. Cada pieza es única y funciona especialmente bien para mesones, muebles, quinchos y proyectos decorativos.",
+    img: TABLONES_RUSTICOS_IMG,
+    specs: [
+      { label: "Acabado", value: "Natural" },
+      { label: "Borde", value: "Rústico" },
+      { label: "Stock", value: "Según pieza" },
+    ],
+    dimensiones: ["Distintos anchos", "Distintos largos", "Consultar disponibilidad"],
   },
   {
     tipo: "Tralix",
