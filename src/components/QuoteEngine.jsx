@@ -115,7 +115,7 @@ export default function QuoteEngine() {
 
   const buildMessageText = () => {
     const lines = [
-      "Hola Maderas M&M 👋",
+      "Hola Maderas MYM 👋",
       "",
       "Quiero solicitar una cotización.",
       `• Producto: ${material}`,
@@ -146,7 +146,7 @@ export default function QuoteEngine() {
             <div className="relative">
               <img
                 src={ABOUT_REALISTA_IMG}
-                alt="Madera de pino trabajada por Maderas M&M"
+                alt="Madera de pino trabajada por Maderas MYM"
                 className="absolute inset-0 w-full h-full object-cover object-center brightness-[0.38] saturate-[0.78]"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-[#120f0d]/55 via-[#120f0d]/72 to-[#120f0d]/94" />
