@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="public/assets/logo-maderas-mm.png" alt="Maderas M&M" width="120" />
+<img src="public/assets/logo-maderas-mm.png" alt="Maderas MYM" width="120" />
 
-# Maderas M&M
+# Maderas MYM
 
 ### Sitio web corporativo para un aserradero chileno 🌲
 
@@ -22,7 +22,7 @@
 
 ## Sobre el proyecto
 
-Sitio web desarrollado para **Maderas M&M**, enfocado en presentar sus productos de madera de forma clara, facilitar cotizaciones y acercar la atención del aserradero a clientes desde celular o computador.
+Sitio web desarrollado para **Maderas MYM**, enfocado en presentar sus productos de madera de forma clara, facilitar cotizaciones y acercar la atención del aserradero a clientes desde celular o computador.
 
 La experiencia combina una identidad visual cálida con herramientas útiles para un negocio real: catálogo, comparación de terminaciones, contacto directo y asistencia mediante IA.
 
@@ -32,7 +32,7 @@ La experiencia combina una identidad visual cálida con herramientas útiles par
 - ↔️ Comparador interactivo entre pino bruto y pino cepillado
 - 📐 Información de medidas y trabajos a pedido
 - 💬 Cotización y contacto directo por WhatsApp
-- 🤖 Asistente IA especializado en los productos de Maderas M&M
+- 🤖 Asistente IA especializado en los productos de Maderas MYM
 - 🖼️ Consulta mediante fotografías en el asistente
 - 🔐 Panel interno para seguimiento de conversaciones
 - 📱 Diseño responsive para móvil, tablet y escritorio
@@ -114,7 +114,7 @@ npm run preview
 
 <div align="center">
 
-**Maderas M&M · Forjamos el futuro en madera**
+**Maderas MYM · Forjamos el futuro en madera**
 
 Proyecto web desarrollado para una empresa real en Chile.
 
