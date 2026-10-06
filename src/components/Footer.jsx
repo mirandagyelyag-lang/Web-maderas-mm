@@ -111,10 +111,10 @@ export default function Footer() {
               </div>
 
               <p className="font-heading font-semibold text-[22px] sm:text-[24px] lg:text-[26px] leading-tight text-[#F9F7F2]">
-                Región de Chile · Entrega a obra
+                San Javier y alrededores · Entrega a obra
               </p>
               <p className="text-[#F9F7F2]/55 text-[15px] sm:text-[16px] leading-relaxed mt-3 max-w-4xl">
-                Despacho directo desde aserradero. Consulta por cobertura en tu zona.
+                Envío gratis dentro de San Javier. Sectores y comunas cercanas tienen costo adicional según distancia.
               </p>
             </div>
           </div>
