@@ -32,12 +32,12 @@ export default function Navbar() {
         <a href="#inicio" className="flex items-center gap-3 group">
           <img
             src={LOGO}
-            alt="Maderas M&M"
+            alt="Maderas MYM"
             className="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover border border-[#A67C52]/40 shadow-lg shadow-black/20 transition-transform group-hover:scale-105" />
           
           <div className="hidden sm:block">
             <span className="block font-heading font-bold text-[#F9F7F2] text-lg leading-none tracking-wide">
-              MADERAS M&M
+              MADERAS MYM
             </span>
             <span className="block font-mono-tech text-[10px] uppercase tracking-[0.2em] mt-1 text-[hsl(var(--primary))]">ASERRADERO CHILENO
 
