@@ -6,8 +6,8 @@ const LOGO = "/assets/logo-maderas-mm.png";
 export default function Footer() {
   const [copied, setCopied] = useState(false);
   const email = "maderasmm@gmail.com";
-  const phone = "+569 53488200";
-  const phoneRaw = "56953488200";
+  const phone = "+56 9 5347 3160";
+  const phoneRaw = "56953473160";
 
   const copyEmail = () => {
     navigator.clipboard.writeText(email);
