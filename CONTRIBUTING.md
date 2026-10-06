@@ -1,6 +1,6 @@
 # Contribuir
 
-Este repositorio contiene el sitio web de Maderas M&M.
+Este repositorio contiene el sitio web de Maderas MYM.
 
 ## Antes de hacer cambios
 
