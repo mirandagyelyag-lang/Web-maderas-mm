@@ -12,4 +12,4 @@ Este repositorio no debe contener claves privadas, tokens de acceso, contraseña
 
 ## Alcance
 
-Esta política cubre el código y la configuración pública del sitio web de Maderas M&M.
+Esta política cubre el código y la configuración pública del sitio web de Maderas MYM.
