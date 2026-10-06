@@ -75,7 +75,7 @@ export default function QuoteEngine() {
       key: "despacho",
       eyebrow: "Último paso",
       title: "¿Necesitas despacho?",
-      subtitle: "Podemos dejar la consulta incluida en el mensaje.",
+      subtitle: "Envío gratis dentro de San Javier. Alrededores con costo adicional según distancia.",
       options: despachos,
     },
   ];
