@@ -304,7 +304,7 @@ export default function AdminConversations() {
         <div className="max-w-7xl mx-auto px-5 sm:px-6 py-4 flex items-center justify-between gap-4">
           <div>
             <p className="font-mono-tech text-[9px] uppercase tracking-[0.18em] text-[#A67C52]">
-              Maderas M&M
+              Maderas MYM
             </p>
             <h1 className="font-heading text-xl sm:text-2xl font-bold">
               Conversaciones del asistente
