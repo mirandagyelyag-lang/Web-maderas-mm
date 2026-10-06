@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <img
           src={HERO_IMG}
-          alt="Instalaciones de Maderas M&M"
+          alt="Instalaciones de Maderas MYM"
           className="h-full w-full object-cover object-[63%_center] sm:object-center brightness-[0.46] sm:brightness-[0.64] contrast-[1.02] saturate-[0.82]"
           draggable="false"
         />
