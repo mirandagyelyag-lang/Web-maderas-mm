@@ -19,7 +19,7 @@ export default function WhatsAppPulse() {
     {
       role: "assistant",
       content:
-        "¡Hola! 👋 Soy el asistente de Maderas M&M. Pregúntame por tipos de madera, medidas, terminaciones, usos o qué producto te conviene para tu proyecto.",
+        "¡Hola! 👋 Soy el asistente de Maderas MYM. Pregúntame por tipos de madera, medidas, terminaciones, usos o qué producto te conviene para tu proyecto.",
     },
   ]);
 
@@ -118,7 +118,7 @@ export default function WhatsAppPulse() {
       .join("\n");
 
     const text =
-      "Hola Maderas M&M 👋\nEstuve conversando con el asistente de la web y quiero continuar mi consulta.\n\n" +
+      "Hola Maderas MYM 👋\nEstuve conversando con el asistente de la web y quiero continuar mi consulta.\n\n" +
       conversation.slice(-2500);
 
     return `https://wa.me/${phoneRaw}?text=${encodeURIComponent(text)}`;
@@ -130,7 +130,7 @@ export default function WhatsAppPulse() {
         type="button"
         onClick={() => setOpen(true)}
         className="fixed bottom-6 right-6 z-40 group flex items-center gap-3"
-        aria-label="Abrir asistente M&M"
+        aria-label="Abrir asistente MYM"
       >
         <span className="hidden sm:flex items-center gap-2 rounded-full border border-[#A67C52]/45 bg-[#211C18]/95 px-4 py-2.5 text-[#F9F7F2] shadow-lg shadow-black/20 backdrop-blur-sm transition-all group-hover:border-[#A67C52] group-hover:-translate-x-0.5">
           <Sparkles size={15} className="text-[#C99561]" />
@@ -156,7 +156,7 @@ export default function WhatsAppPulse() {
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <p className="font-heading font-bold text-[15px]">Asistente M&M</p>
+                    <p className="font-heading font-bold text-[15px]">Asistente MYM</p>
                     <span className="rounded-full border border-[#A67C52]/45 bg-[#A67C52]/10 px-2 py-0.5 font-mono-tech text-[8px] uppercase tracking-[0.16em] text-[#C99561]">
                       IA
                     </span>
@@ -272,7 +272,7 @@ export default function WhatsAppPulse() {
                   />
                   <div className="min-w-0 flex-1">
                     <p className="text-xs font-semibold text-[#2C2926]">Foto lista para enviar</p>
-                    <p className="text-[11px] text-[#2C2926]/55">La IA solo confirmará si Maderas M&M hace algo así.</p>
+                    <p className="text-[11px] text-[#2C2926]/55">La IA solo confirmará si Maderas MYM hace algo así.</p>
                   </div>
                   <button
                     type="button"
