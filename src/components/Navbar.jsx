@@ -6,7 +6,6 @@ const LOGO = "/assets/logo-maderas-mm.png";
 const navLinks = [
 { label: "Inicio", href: "#inicio" },
 { label: "Productos", href: "#productos" },
-{ label: "Cotizar", href: "#cotizar" },
 { label: "Contacto", href: "#contacto" }];
 
 
@@ -56,7 +55,7 @@ export default function Navbar() {
             </a>
           )}
           <a
-            href="https://wa.me/56953488200?text=Hola%20Maderas%20M%26M%2C%20me%20gustar%C3%ADa%20cotizar."
+            href="https://wa.me/56953473160?text=Hola%20Maderas%20MYM%2C%20me%20gustar%C3%ADa%20cotizar."
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#A67C52] text-[#F9F7F2] px-5 py-2.5 font-heading text-sm font-semibold tracking-wide hover:bg-[#8B693A] transition-colors">
@@ -88,7 +87,7 @@ export default function Navbar() {
               </a>
           )}
             <a
-            href="https://wa.me/56953488200"
+            href="https://wa.me/56953473160"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#A67C52] text-[#F9F7F2] px-5 py-3 font-heading text-sm font-semibold text-center">
