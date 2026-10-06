@@ -25,7 +25,7 @@ export default function Footer() {
           <div>
             <img
               src={LOGO}
-              alt="Maderas M&M"
+              alt="Maderas MYM"
               className="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover border border-[#A67C52]/40 shadow-lg shadow-black/20 mb-6"
             />
 
@@ -122,7 +122,7 @@ export default function Footer() {
 
         <div className="mt-10 sm:mt-14 pt-6 border-t border-[#A67C52]/60">
           <p className="font-heading text-[#F9F7F2]/35 text-xs sm:text-sm text-center sm:text-left">
-            © {new Date().getFullYear()} Maderas M&M · Forjamos el futuro en madera
+            © {new Date().getFullYear()} Maderas MYM · Forjamos el futuro en madera
           </p>
         </div>
       </div>
