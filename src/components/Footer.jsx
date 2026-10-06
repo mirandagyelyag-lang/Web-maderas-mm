@@ -60,7 +60,7 @@ export default function Footer() {
 
               <a
                 href={`mailto:${email}`}
-                className="font-heading font-semibold text-[clamp(17px,4.8vw,25px)] leading-tight tracking-[-0.02em] text-[#F9F7F2] hover:text-[#C99561] transition-colors whitespace-nowrap"
+                className="font-heading font-semibold text-[18px] sm:text-[20px] lg:text-[21px] xl:text-[22px] leading-tight tracking-[-0.02em] text-[#F9F7F2] hover:text-[#C99561] transition-colors whitespace-nowrap max-w-full"
               >
                 {email}
               </a>
