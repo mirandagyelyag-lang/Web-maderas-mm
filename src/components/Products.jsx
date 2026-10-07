@@ -164,7 +164,7 @@ export default function Products() {
               alt="Textura de pino cepillado"
               className="absolute inset-0 w-full h-full object-cover"
               draggable="false"
-              loading="lazy"
+              loading="eager"
               decoding="async"
             />
 
@@ -175,7 +175,7 @@ export default function Products() {
               className="absolute inset-0 w-full h-full object-cover"
               style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
               draggable="false"
-              loading="lazy"
+              loading="eager"
               decoding="async"
             />
 
@@ -329,7 +329,7 @@ export default function Products() {
                   className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${
                     p.tipo === "Tralix" ? "object-[50%_52%]" : "object-center"
                   }`}
-                  loading="lazy"
+                  loading="eager"
                   decoding="async"
                 />
 
