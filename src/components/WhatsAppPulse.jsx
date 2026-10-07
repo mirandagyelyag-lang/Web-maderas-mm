@@ -196,6 +196,8 @@ export default function WhatsAppPulse() {
                         src={message.image}
                         alt="Foto enviada por el cliente"
                         className="mb-2 max-h-48 w-full rounded-xl object-cover"
+                        loading="lazy"
+                        decoding="async"
                       />
                     )}
                     {message.content}
@@ -269,6 +271,8 @@ export default function WhatsAppPulse() {
                     src={imagePreview}
                     alt="Vista previa"
                     className="h-16 w-16 rounded-lg object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="min-w-0 flex-1">
                     <p className="text-xs font-semibold text-[#2C2926]">Foto lista para enviar</p>
