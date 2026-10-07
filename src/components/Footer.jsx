@@ -27,6 +27,8 @@ export default function Footer() {
               src={LOGO}
               alt="Maderas MYM"
               className="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover border border-[#A67C52]/40 shadow-lg shadow-black/20 mb-6"
+              loading="lazy"
+              decoding="async"
             />
 
             <div className="flex items-center gap-3 mb-4">
