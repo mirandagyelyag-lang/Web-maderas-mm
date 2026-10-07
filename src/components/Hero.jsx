@@ -15,6 +15,9 @@ export default function Hero() {
           alt="Instalaciones de Maderas MYM"
           className="h-full w-full object-cover object-[63%_center] sm:object-center brightness-[0.46] sm:brightness-[0.64] contrast-[1.02] saturate-[0.82]"
           draggable="false"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
 
         {/* Mobile: oscuridad más fuerte detrás del contenido para que la foto no compita con el texto */}
