@@ -148,6 +148,8 @@ export default function QuoteEngine() {
                 src={ABOUT_REALISTA_IMG}
                 alt="Madera de pino trabajada por Maderas MYM"
                 className="absolute inset-0 w-full h-full object-cover object-center brightness-[0.38] saturate-[0.78]"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-[#120f0d]/55 via-[#120f0d]/72 to-[#120f0d]/94" />
 
@@ -221,6 +223,8 @@ export default function QuoteEngine() {
                     src={ABOUT_RADIATA_IMG}
                     alt="Pino Radiata"
                     className="w-full h-full object-cover brightness-[0.72] contrast-[1.03] transition-transform duration-700 group-hover:scale-[1.03]"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#181412]/95 via-[#181412]/10 to-transparent" />
                   <div className="absolute left-5 right-5 bottom-5">
@@ -245,6 +249,8 @@ export default function QuoteEngine() {
                     src={ABOUT_OREGON_IMG}
                     alt="Pino Oregón"
                     className="w-full h-full object-cover brightness-[0.72] contrast-[1.03] transition-transform duration-700 group-hover:scale-[1.03]"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#181412]/95 via-[#181412]/10 to-transparent" />
                   <div className="absolute left-5 right-5 bottom-5">
