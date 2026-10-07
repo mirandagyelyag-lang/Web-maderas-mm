@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
-const LOGO = "/assets/logo-maderas-mm.png";
+const LOGO = "/assets/logo-maderas-mm.webp";
 
 const navLinks = [
 { label: "Inicio", href: "#inicio" },

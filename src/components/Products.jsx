@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { MoveHorizontal } from "lucide-react";
 
-const BRUTO_IMG = "/assets/bruto-comparador.png";
-const PINO_BRUTO_IMG = "/assets/pino-bruto.png";
-const CEPILLADO_IMG = "/assets/pino-cepillado.png";
-const CEPILLADO_COMPARADOR_IMG = "/assets/cepillado-comparador.png";
+const BRUTO_IMG = "/assets/bruto-comparador.webp";
+const PINO_BRUTO_IMG = "/assets/pino-bruto.webp";
+const CEPILLADO_IMG = "/assets/pino-cepillado.webp";
+const CEPILLADO_COMPARADOR_IMG = "/assets/cepillado-comparador.webp";
 const TRILLAGE_IMG = "/assets/trillage-profesional-fixed.webp";
-const DIMENSIONADO_IMG = "/assets/viga.png";
-const LARGOS_IMG = "/assets/viga-2.png";
-const CANTO_NATURAL_IMG = "/assets/canto-natural.png";
-const TABLONES_RUSTICOS_IMG = "/assets/tablones-rusticos.png";
+const DIMENSIONADO_IMG = "/assets/viga.webp";
+const LARGOS_IMG = "/assets/viga-2.webp";
+const CANTO_NATURAL_IMG = "/assets/canto-natural.webp";
+const TABLONES_RUSTICOS_IMG = "/assets/tablones-rusticos.webp";
 
 const products = [
   {

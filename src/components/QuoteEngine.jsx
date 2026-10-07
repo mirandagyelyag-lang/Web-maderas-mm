@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { MessageCircle, Check, ArrowLeft, ArrowRight } from "lucide-react";
 
-const ABOUT_RADIATA_IMG = "/assets/about-radiata.png";
-const ABOUT_OREGON_IMG = "/assets/about-oregon.png";
-const ABOUT_REALISTA_IMG = "/assets/about-realista.png";
+const ABOUT_RADIATA_IMG = "/assets/about-radiata.webp";
+const ABOUT_OREGON_IMG = "/assets/about-oregon.webp";
+const ABOUT_REALISTA_IMG = "/assets/about-realista.webp";
 
 const materiales = [
   "Pino Bruto",

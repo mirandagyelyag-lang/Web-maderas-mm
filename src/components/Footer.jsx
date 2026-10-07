@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Mail, Phone, MessageCircle, MapPin, Copy, Check } from "lucide-react";
 
-const LOGO = "/assets/logo-maderas-mm.png";
+const LOGO = "/assets/logo-maderas-mm.webp";
 
 export default function Footer() {
   const [copied, setCopied] = useState(false);
